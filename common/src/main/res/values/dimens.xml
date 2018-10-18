@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--设置一些通用常用的控件的尺寸-->
+    <!--头像尺寸-->
+    <dimen name="portraitMinSize">@dimen/len_36</dimen>
+    <dimen name="portraitSize">@dimen/len_40</dimen>
+    <dimen name="portraitMaxSize">@dimen/len_64</dimen>
+
+
+    <!--状态栏尺寸-->
+    <dimen name="statusBarSize">25dp</dimen>
+    <!--状态栏加上bar的尺寸-->
+    <dimen name="actionBarWithStatusBarSize">73dp</dimen>
+
+    <!--一般字体的尺寸-->
+    <dimen name="fontNameSize">15sp</dimen>
+    <!--一般字体的尺寸-->
+    <dimen name="fontSecondSize">12sp</dimen>
+
+    <!--浮动按钮的默认高度-->
+    <dimen name="defaultFloatButtonSize">@dimen/len_52</dimen>
+
+    <!--底部导航栏的默认高度-->
+    <dimen name="defaultNavHeight">@dimen/len_52</dimen>
+
+</resources>

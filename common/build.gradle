@@ -1,0 +1,67 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+//    butter knife
+//    compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+//    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+
+
+    compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
+    compile "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
+    //用来做底部面板
+    compile "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
+
+    // Dagger dependencies
+//    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    compile "com.google.dagger:dagger:$rootProject.daggerVersion"
+    compile "com.google.dagger:dagger-android:$rootProject.daggerVersion"
+    compile "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+
+    //圆形图片的库
+    compile "de.hdodenhof:circleimageview:$rootProject.ext.circleimageviewVersion"
+
+    //glide图片加载框架
+    compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+
+
+
+    implementation project(':lang')
+}
