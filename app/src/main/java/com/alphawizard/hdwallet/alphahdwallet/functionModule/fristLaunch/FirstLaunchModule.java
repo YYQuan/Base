@@ -20,5 +20,12 @@ public abstract class FirstLaunchModule {
     @Binds
     abstract FirstLaunchContract.Presenter taskPresenter(FirstLaunchPresenter presenter);
 
+
+    @Provides
+    public static FirstLaunchRouter  providesFirstLaunchRouter(){
+        return new FirstLaunchRouter();
+    }
+
+
 }
 

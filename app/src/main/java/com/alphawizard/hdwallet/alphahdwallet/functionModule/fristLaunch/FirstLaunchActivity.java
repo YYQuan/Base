@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
+import com.alphawizard.hdwallet.common.util.Log;
 
 import javax.inject.Inject;
 
@@ -21,6 +22,7 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
     }
 
 
+
     @BindView(R.id.btn_create_account)
     Button btnCreate;
 
@@ -29,6 +31,9 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
 
     @Inject
     FirstLaunchContract.Presenter mPresenter;
+
+    @Inject
+    FirstLaunchRouter router;
 
     @Override
     public int getContentLayoutID() {
@@ -43,6 +48,12 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
     @Override
     public void initData() {
         super.initData();
+        if(router==null){
+            Log.d("router :  null");
+        }else{
+            Log.d("router :  " + router.toString());
+        }
+
     }
 
     @Override
