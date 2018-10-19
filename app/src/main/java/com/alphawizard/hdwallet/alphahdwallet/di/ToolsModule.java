@@ -13,10 +13,6 @@ import okhttp3.OkHttpClient;
 
 @Module
 class ToolsModule {
-	@Provides
-    Context provideContext(App application) {
-		return application.getApplicationContext();
-	}
 
 	@Singleton
 	@Provides
@@ -31,6 +27,7 @@ class ToolsModule {
 //                .addInterceptor(new LogInterceptor())
                 .build();
 	}
+
 
 
 }

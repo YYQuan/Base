@@ -1,5 +1,6 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Activity;
 
@@ -8,22 +9,17 @@ import com.alphawizard.hdwallet.alphahdwallet.service.AccountKeystoreService;
 import com.alphawizard.hdwallet.common.presenter.BaseContract;
 import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Log;
+import com.google.gson.Gson;
 
 
 import javax.inject.Inject;
+
+import dagger.Provides;
 
 public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunchContract.Presenter> implements  FirstLaunchContract.View {
 
     @Inject
     FirstLaunchContract.Presenter  mPresenter;
-
-    @Inject
-    Test test;
-
-    @Inject
-    String taskId;
-//    @Inject
-    AccountKeystoreService keystoreService;
 
     @Override
     public int getContentLayoutID() {
@@ -38,23 +34,5 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
     @Override
     public void initData() {
         super.initData();
-
-        if(test!=null){
-            Log.d("test :"+test.toString());
-        }else{
-            Log.d("test :  null");
-        }
-
-        if(mPresenter!=null){
-            Log.d("mPresenter :"+mPresenter.toString());
-        }else{
-            Log.d("mPresenter :  null");
-        }
-
-        if(keystoreService!=null){
-            Log.d("keystoreService :"+keystoreService.toString());
-        }else{
-            Log.d("keystoreService :  null");
-        }
     }
 }

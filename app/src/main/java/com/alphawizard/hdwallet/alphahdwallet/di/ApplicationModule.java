@@ -1,7 +1,10 @@
 package com.alphawizard.hdwallet.alphahdwallet.di;
 
-import android.app.Application;
+
 import android.content.Context;
+
+
+import com.alphawizard.hdwallet.alphahdwallet.App;
 
 import dagger.Binds;
 import dagger.Module;
@@ -19,6 +22,6 @@ import dagger.Module;
 public abstract class ApplicationModule {
     //expose Application as an injectable context
     @Binds
-    abstract Context bindContext(Application application);
+    abstract Context bindContext(App application);
 }
 

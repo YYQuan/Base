@@ -8,6 +8,7 @@ import android.app.Activity;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.DaggerAppComponent;
 import com.alphawizard.hdwallet.common.base.App.Application;
+import com.alphawizard.hdwallet.common.util.Log;
 
 import javax.inject.Inject;
 

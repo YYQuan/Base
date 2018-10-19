@@ -20,21 +20,5 @@ public abstract class FirstLaunchModule {
     @Binds
     abstract FirstLaunchContract.Presenter taskPresenter(FirstLaunchPresenter presenter);
 
-//    @Provides
-//    static Test  injectTest(AccountKeystoreService service){
-//        return new Test(service);
-//    }
-
-    @Provides
-    static Test  injectTest( ){
-        return new Test();
-    }
-
-//    @Provides
-//    @ActivityScoped
-//    static String provideTaskId(FirstLaunchActivity activity) {
-//        return activity.toString();
-//    }
-
 }
 
