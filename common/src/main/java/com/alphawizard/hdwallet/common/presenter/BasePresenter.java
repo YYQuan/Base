@@ -14,16 +14,23 @@ public class BasePresenter<V extends BaseContract.BaseView> implements BaseContr
 
 
 
+
     @Override
     public void takeView(V view) {
         this.view = view;
         view.setPresenter(this);
     }
 
+
     @Override
     public void dropView() {
         this.view = null;
         view.setPresenter(null);
+    }
+
+    @Override
+    public V getView() {
+        return view;
     }
 
     @Override

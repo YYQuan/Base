@@ -38,8 +38,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
 //    butter knife
-//    compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
-//    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+    compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
 
     compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"

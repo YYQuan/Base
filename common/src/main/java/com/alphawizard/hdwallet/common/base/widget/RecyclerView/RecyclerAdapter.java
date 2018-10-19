@@ -12,8 +12,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//import butterknife.ButterKnife;
-//import butterknife.Unbinder;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
+
 
 /**
  * Created by Yqquan on 2018/6/29.
@@ -23,9 +25,6 @@ public abstract class RecyclerAdapter <Data> extends RecyclerView.Adapter<Recycl
         implements View.OnClickListener,
                     View.OnLongClickListener,
                     AdapterCallback<Data>{
-
-
-
 
     private List<Data> mDataList ;
     private HolderClickListener listener;
@@ -55,7 +54,7 @@ public abstract class RecyclerAdapter <Data> extends RecyclerView.Adapter<Recycl
         //让 view中绑定了viewHolder的信息 这样view能够得到holder
         root.setTag(R.id.ViewHolder_Tag,holder);
 
-//        holder.unbinder = ButterKnife.bind(holder,root);
+        holder.unbinder = ButterKnife.bind(holder,root);
         holder.callback  =this;
 
         return holder;
@@ -215,7 +214,7 @@ public abstract class RecyclerAdapter <Data> extends RecyclerView.Adapter<Recycl
     public static abstract class  ViewHolder<Data> extends RecyclerView.ViewHolder{
         protected  Data  mData;
         private AdapterCallback callback;
-//        private Unbinder unbinder;
+        private Unbinder unbinder;
 
         public ViewHolder(View itemView) {
             super(itemView);

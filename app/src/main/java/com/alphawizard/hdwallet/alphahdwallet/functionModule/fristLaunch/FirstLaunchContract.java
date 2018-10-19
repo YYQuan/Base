@@ -16,7 +16,10 @@
 
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
 
+import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
 import com.alphawizard.hdwallet.common.presenter.BaseContract;
+
+import io.reactivex.Single;
 
 /**
  * This specifies the contract between the view and the presenter.
@@ -28,6 +31,7 @@ public interface FirstLaunchContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View> {
-
+        Single<Wallet>  createWallet();
+        Single<Wallet>  createWallet(String keyStorePassWord);
     }
 }

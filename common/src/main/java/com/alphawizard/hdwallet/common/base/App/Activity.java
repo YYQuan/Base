@@ -10,6 +10,8 @@ import java.util.List;
 
 //import butterknife.ButterKnife;
 //import butterknife.Unbinder;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import dagger.android.support.DaggerAppCompatActivity;
 
 /**
@@ -22,7 +24,7 @@ public abstract class Activity extends DaggerAppCompatActivity {
 
     boolean isFirstCreate = true;
 
-//    Unbinder unbinder;
+    Unbinder unbinder;
 
     public  static  void show(Context context){
         context.startActivity(new Intent(context, Activity.class));
@@ -76,7 +78,7 @@ public abstract class Activity extends DaggerAppCompatActivity {
      * 已经绑定了ButterKnife
      */
     public void initWidget() {
-//        unbinder =ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
     }
 
     /**

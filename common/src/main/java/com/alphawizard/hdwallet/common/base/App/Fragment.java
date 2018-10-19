@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 
 import com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.PlaceHolderView;
 
-
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
@@ -22,7 +23,7 @@ import com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.PlaceHolderView;
  */
 
 public abstract class Fragment extends dagger.android.support.DaggerFragment {
-//    protected Unbinder mUnbinder;
+    protected Unbinder mUnbinder;
     protected View   mRoot;
     private  boolean isFirst  = true ;
 
@@ -80,7 +81,7 @@ public abstract class Fragment extends dagger.android.support.DaggerFragment {
      * @param view
      */
     public  void initWidget(View view){
-//        mUnbinder =ButterKnife.bind(this,view);
+        mUnbinder = ButterKnife.bind(this,view);
     }
 
 

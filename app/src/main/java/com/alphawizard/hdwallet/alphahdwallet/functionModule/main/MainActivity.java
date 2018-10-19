@@ -1,5 +1,7 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchActivity;
 import com.alphawizard.hdwallet.common.presenter.BaseContract;
 import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Log;
@@ -21,6 +24,10 @@ public class MainActivity extends BasePresenterToolbarActivity<BaseContract.Base
     MainContract.Presenter mPresenter;
 
     private TextView mTextMessage;
+
+    public static void show(Context context) {
+        context.startActivity(new Intent(context, MainActivity.class));
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

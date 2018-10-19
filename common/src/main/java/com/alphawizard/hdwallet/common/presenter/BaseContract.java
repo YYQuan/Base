@@ -40,6 +40,8 @@ public interface BaseContract {
          */
         void dropView();
 
+        V  getView();
+
         void create();
         void start();
         void destroy();
