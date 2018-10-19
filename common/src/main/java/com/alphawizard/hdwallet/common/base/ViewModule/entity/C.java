@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.data.entiry;
+package com.alphawizard.hdwallet.common.base.ViewModule.entity;
 
 public class C {
     public interface ErrorCode {

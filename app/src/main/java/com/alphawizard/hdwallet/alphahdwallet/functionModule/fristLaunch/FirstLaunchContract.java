@@ -17,6 +17,7 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
 
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 import com.alphawizard.hdwallet.common.presenter.BaseContract;
 
 import io.reactivex.Single;
@@ -26,12 +27,12 @@ import io.reactivex.Single;
  */
 public interface FirstLaunchContract {
 
-    interface View extends BaseContract.BaseView<Presenter> {
-
+    interface View extends BaseContract.BaseView<Presenter,FirstLaunchViewModule> {
+        void onCreatedWallet(Wallet wallet);
     }
 
-    interface Presenter extends BaseContract.BasePresenter<View> {
+    interface Presenter extends BaseContract.BasePresenter<View,FirstLaunchViewModule> {
         Single<Wallet>  createWallet();
-        Single<Wallet>  createWallet(String keyStorePassWord);
+
     }
 }

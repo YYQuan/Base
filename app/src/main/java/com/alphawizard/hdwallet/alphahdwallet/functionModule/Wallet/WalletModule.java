@@ -2,8 +2,6 @@ package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
 
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.main.MainContract;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.main.MainRouter;
 
 import dagger.Binds;
 import dagger.Module;

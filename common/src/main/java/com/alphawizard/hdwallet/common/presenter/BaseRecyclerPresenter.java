@@ -1,6 +1,9 @@
 package com.alphawizard.hdwallet.common.presenter;
 
 import android.support.v7.util.DiffUtil;
+
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
+
 import java.util.List;
 
 
@@ -9,7 +12,7 @@ import java.util.List;
  * Created by Yqquan on 2018/7/31.
  */
 
-public class BaseRecyclerPresenter<Data,V extends BaseContract.BaseRecyclerView> extends BasePresenter<V> {
+public class BaseRecyclerPresenter<Data,ViewModule extends BaseViewModel,V extends BaseContract.BaseRecyclerView> extends BasePresenter<V,ViewModule> {
 
     public BaseRecyclerPresenter() {
 

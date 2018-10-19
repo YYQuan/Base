@@ -1,14 +1,13 @@
-package com.alphawizard.hdwallet.alphahdwallet.data.ViewModule;
+package com.alphawizard.hdwallet.common.base.ViewModule;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.C;
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.ErrorEnvelope;
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.ServiceException;
-
+import com.alphawizard.hdwallet.common.base.ViewModule.entity.C;
+import com.alphawizard.hdwallet.common.base.ViewModule.entity.ErrorEnvelope;
+import com.alphawizard.hdwallet.common.base.ViewModule.entity.ServiceException;
 
 import io.reactivex.disposables.Disposable;
 

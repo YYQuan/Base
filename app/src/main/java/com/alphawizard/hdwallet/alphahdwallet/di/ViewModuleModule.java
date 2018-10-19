@@ -1,8 +1,9 @@
 package com.alphawizard.hdwallet.alphahdwallet.di;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.WalletsViewModelFactory;
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.FirstLaunchViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.WalletsViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchViewModule;
 
 import dagger.Module;
 import dagger.Provides;
@@ -11,8 +12,13 @@ import dagger.Provides;
 public class ViewModuleModule {
 
     @Provides
-    WalletsViewModelFactory   providesWalletsViewModuleFactory(){
-        return  new WalletsViewModelFactory();
+    WalletsViewModuleFactory providesWalletsViewModuleFactory(){
+        return  new WalletsViewModuleFactory();
+    }
+
+    @Provides
+    FirstLaunchViewModuleFactory providesFirstLaunchViewModule(){
+        return  new FirstLaunchViewModuleFactory();
     }
 
 

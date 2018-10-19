@@ -23,13 +23,13 @@ import com.alphawizard.hdwallet.common.presenter.BaseContract;
  */
 public interface WalletContract {
 
-    interface View extends BaseContract.BaseView<Presenter> {
+    interface View extends BaseContract.BaseView<Presenter,WalletViewModule> {
         void showSendFragment();
         void showRecordFragment();
         void showReceiveFragment();
     }
 
-    interface Presenter extends BaseContract.BasePresenter<View> {
+    interface Presenter extends BaseContract.BasePresenter<View,WalletViewModule> {
 
         String getBalance();
         String getEthValue();

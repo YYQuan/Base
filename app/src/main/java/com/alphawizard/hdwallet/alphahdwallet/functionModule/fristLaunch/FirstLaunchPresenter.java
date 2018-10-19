@@ -18,8 +18,9 @@ package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
 
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.main.MainContract;
+
 import com.alphawizard.hdwallet.alphahdwallet.service.AccountKeystoreService;
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 import com.alphawizard.hdwallet.common.presenter.BasePresenter;
 
 import java.security.SecureRandom;
@@ -30,7 +31,7 @@ import io.reactivex.Single;
 
 
 @ActivityScoped
-final class FirstLaunchPresenter extends BasePresenter<FirstLaunchContract.View> implements FirstLaunchContract.Presenter {
+final class FirstLaunchPresenter extends BasePresenter<FirstLaunchContract.View,FirstLaunchViewModule> implements FirstLaunchContract.Presenter {
 
     @Inject
     AccountKeystoreService   service;
@@ -55,9 +56,5 @@ final class FirstLaunchPresenter extends BasePresenter<FirstLaunchContract.View>
         return null;
     }
 
-    @Override
-    public Single<Wallet> createWallet(String keyStorePassWord) {
-        service.createAccount(keyStorePassWord);
-        return null;
-    }
+
 }

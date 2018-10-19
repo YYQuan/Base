@@ -17,14 +17,13 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.main.MainContract;
 import com.alphawizard.hdwallet.common.presenter.BasePresenter;
 
 import javax.inject.Inject;
 
 
 @ActivityScoped
-final class WalletPresenter extends BasePresenter<WalletContract.View> implements WalletContract.Presenter {
+final class WalletPresenter extends BasePresenter<WalletContract.View,WalletViewModule> implements WalletContract.Presenter {
 
 //     dagger 不需要 public  , 避免 误操作 就不把构造函数暴露出去
     @Inject

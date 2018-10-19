@@ -6,21 +6,23 @@ import android.support.annotation.Nullable;
 
 import com.alphawizard.hdwallet.common.base.App.Application;
 import com.alphawizard.hdwallet.common.base.App.Fragment;
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 
 /**
  * Created by Yqquan on 2018/7/13.
  */
 
-public abstract class BasePresenterFragment<P extends  BaseContract.BasePresenter> extends Fragment implements BaseContract.BaseView<P> {
+public abstract class BasePresenterFragment<P extends  BaseContract.BasePresenter,ViewModule extends BaseViewModel> extends Fragment implements BaseContract.BaseView<P,ViewModule> {
 
     protected P mPresenter;
-
+    protected ViewModule mViewModule;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mPresenter = initPresenter();
-        if(mPresenter !=null) {
-            mPresenter.takeView(this);
+        mViewModule = initViewModule();
+        if(mPresenter !=null&&mViewModule!=null) {
+            mPresenter.takeView(this,mViewModule);
         }
     }
 
@@ -80,6 +82,8 @@ public abstract class BasePresenterFragment<P extends  BaseContract.BasePresente
 //    子类当中要返回一个P的对象，这样这个P的对象就会通过View的 setPresenter设置到属性变量mPresenter当中
     public abstract P initPresenter();
 
+    //    子类当中要返回一个P的对象，这样这个P的对象就会通过View的 setPresenter设置到属性变量mPresenter当中
+    public abstract ViewModule initViewModule();
 
     @Override
     public void setPresenter(P presenter) {

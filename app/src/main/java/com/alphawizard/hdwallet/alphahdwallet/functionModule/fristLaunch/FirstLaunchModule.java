@@ -1,8 +1,6 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.main.MainContract;
-import com.alphawizard.hdwallet.alphahdwallet.service.AccountKeystoreService;
 
 
 import dagger.Binds;
@@ -19,7 +17,6 @@ public abstract class FirstLaunchModule {
     @ActivityScoped
     @Binds
     abstract FirstLaunchContract.Presenter taskPresenter(FirstLaunchPresenter presenter);
-
 
     @Provides
     public static FirstLaunchRouter  providesFirstLaunchRouter(){

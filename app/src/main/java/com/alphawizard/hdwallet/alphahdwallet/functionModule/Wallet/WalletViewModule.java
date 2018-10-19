@@ -1,16 +1,17 @@
-package com.alphawizard.hdwallet.alphahdwallet.data.ViewModule;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.C;
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.ErrorEnvelope;
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
+import com.alphawizard.hdwallet.common.base.ViewModule.entity.C;
+import com.alphawizard.hdwallet.common.base.ViewModule.entity.ErrorEnvelope;
 
 import javax.inject.Inject;
 
-public class WalletViewModel extends BaseViewModel {
+public class WalletViewModule extends BaseViewModel {
 
     @Inject
     CreateWalletInteract  createWalletInteract;
@@ -22,7 +23,7 @@ public class WalletViewModel extends BaseViewModel {
     private final MutableLiveData<String> exportedStore = new MutableLiveData<>();
     private final MutableLiveData<ErrorEnvelope> exportWalletError = new MutableLiveData<>();
 
-    public WalletViewModel() {
+    public WalletViewModule() {
     }
 
 

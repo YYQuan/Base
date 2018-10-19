@@ -1,8 +1,9 @@
 package com.alphawizard.hdwallet.alphahdwallet.service;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.ServiceException;
+
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.common.base.ViewModule.entity.ServiceException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.ethereum.geth.Geth;

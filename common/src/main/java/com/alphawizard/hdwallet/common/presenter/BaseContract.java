@@ -1,6 +1,7 @@
 package com.alphawizard.hdwallet.common.presenter;
 
 
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 import com.alphawizard.hdwallet.common.base.widget.RecyclerView.RecyclerAdapter;
 
 /**
@@ -15,25 +16,25 @@ import com.alphawizard.hdwallet.common.base.widget.RecyclerView.RecyclerAdapter;
 
 public interface BaseContract {
 
-    interface BaseView <T extends BasePresenter>{
+    interface BaseView <T extends BasePresenter,ViewModule extends  BaseViewModel >{
         void  showError(int errorCode);
 //        理解为初始化就好，不一定是load
         void  showLoading();
         void  setPresenter(T presenter);
     }
 
-    interface BaseRecyclerView <P extends BasePresenter,T> extends BaseView<P>{
+    interface BaseRecyclerView <P extends BasePresenter,ViewModule extends  BaseViewModel,T> extends BaseView<P,ViewModule >{
         RecyclerAdapter<T> getRecyclerViewAdapter();
         void onRecyclerChange();
     }
 
-    interface BasePresenter<V>{
+    interface BasePresenter<V,ViewModule extends BaseViewModel>{
         /**
          * Binds presenter with a view when resumed. The Presenter will perform initialization here.
          *
          * @param view the view associated with this presenter
          */
-        void takeView(V view);
+        void takeView(V view,ViewModule viewModule);
 
         /**
          * Drops the reference to the view when destroyed
@@ -41,6 +42,10 @@ public interface BaseContract {
         void dropView();
 
         V  getView();
+
+        ViewModule  getViewModule();
+
+        void    setViewModule(ViewModule module);
 
         void create();
         void start();

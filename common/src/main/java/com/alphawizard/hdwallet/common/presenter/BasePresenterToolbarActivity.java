@@ -11,12 +11,14 @@ import com.alphawizard.hdwallet.common.R;
 import com.alphawizard.hdwallet.common.base.App.Application;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.PlaceHolderView;
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 
 
-public abstract class BasePresenterToolbarActivity<P extends BaseContract.BasePresenter> extends ToolbarActivity
-        implements   BaseContract.BaseView<P>
+public abstract class BasePresenterToolbarActivity<P extends BaseContract.BasePresenter,ViewModule extends BaseViewModel> extends ToolbarActivity
+        implements   BaseContract.BaseView<P,ViewModule>
 {
     protected P mPresenter;
+    protected ViewModule mViewModule;
 
     public PlaceHolderView mPlaceHolderView;
     public ProgressDialog mDialog;
@@ -28,8 +30,9 @@ public abstract class BasePresenterToolbarActivity<P extends BaseContract.BasePr
     public void initBeforeInitData() {
         super.initBeforeInitData();
         mPresenter = initPresenter();
-        if(mPresenter !=null) {
-            mPresenter.takeView(this);
+        mViewModule = initViewModule();
+        if(mPresenter !=null&&mViewModule!=null) {
+            mPresenter.takeView(this,mViewModule);
         }
     }
 
@@ -122,7 +125,7 @@ public abstract class BasePresenterToolbarActivity<P extends BaseContract.BasePr
 
     //    子类当中要返回一个P的对象，这样这个P的对象就会通过View的 setPresenter设置到属性变量mPresenter当中
     public abstract P initPresenter();
-
+    public abstract ViewModule initViewModule();
 
     @Override
     public void setPresenter(P presenter) {

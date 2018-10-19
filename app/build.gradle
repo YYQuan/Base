@@ -88,6 +88,9 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
     implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
 
+    //lifecycle
+    implementation "android.arch.lifecycle:runtime:$rootProject.ext.lifecycleVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.ext.lifecycleVersion"
 
     implementation project(':common')
 }

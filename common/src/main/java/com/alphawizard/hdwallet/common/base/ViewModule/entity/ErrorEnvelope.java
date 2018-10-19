@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.data.entiry;
+package com.alphawizard.hdwallet.common.base.ViewModule.entity;
 
 import android.support.annotation.Nullable;
 

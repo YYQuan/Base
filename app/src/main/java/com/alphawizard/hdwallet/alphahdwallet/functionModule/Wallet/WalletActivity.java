@@ -1,5 +1,6 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -8,18 +9,26 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
+import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.FirstLaunchViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.WalletsViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.main.MainContract;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchViewModule;
+
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 import com.alphawizard.hdwallet.common.presenter.BaseContract;
 import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Log;
 
 import javax.inject.Inject;
 
-public class WalletActivity extends BasePresenterToolbarActivity<WalletContract.Presenter> implements WalletContract.View{
+public class WalletActivity extends BasePresenterToolbarActivity<WalletContract.Presenter,WalletViewModule> implements WalletContract.View{
 
     @Inject
     WalletContract.Presenter mPresenter;
+
+    @Inject
+    WalletsViewModuleFactory viewModuleFactory;
+    WalletViewModule viewModel;
 
     private TextView mTextMessage;
 
@@ -57,6 +66,20 @@ public class WalletActivity extends BasePresenterToolbarActivity<WalletContract.
         return mPresenter;
     }
 
+    @Override
+    public WalletViewModule initViewModule() {
+        return viewModel;
+    }
+
+    @Override
+    public void initData() {
+        super.initData();
+
+        viewModel = ViewModelProviders.of(this, viewModuleFactory)
+                .get(WalletViewModule.class);
+//        viewModel.createdWallet().observe(this,this::onCreatedWallet);
+
+    }
 
     @Override
     public void initFirst() {
