@@ -13,8 +13,7 @@ import javax.inject.Inject;
 
 public class WalletViewModule extends BaseViewModel {
 
-    @Inject
-    CreateWalletInteract  createWalletInteract;
+    CreateWalletInteract mCreateWalletInteract;
 
     private final MutableLiveData<Wallet[]> wallets = new MutableLiveData<>();
     private final MutableLiveData<Wallet> defaultWallet = new MutableLiveData<>();
@@ -23,9 +22,9 @@ public class WalletViewModule extends BaseViewModel {
     private final MutableLiveData<String> exportedStore = new MutableLiveData<>();
     private final MutableLiveData<ErrorEnvelope> exportWalletError = new MutableLiveData<>();
 
-    public WalletViewModule() {
+    public WalletViewModule(CreateWalletInteract createWalletInteract) {
+        mCreateWalletInteract = createWalletInteract;
     }
-
 
     public LiveData<Wallet[]> wallets() {
         return wallets;
@@ -41,7 +40,7 @@ public class WalletViewModule extends BaseViewModel {
 
     public void newWallet() {
         progress.setValue(true);
-        createWalletInteract
+        mCreateWalletInteract
                 .create()
 //				create 过程中没有throw 就回调success ,如果有throw  异常的话，那么就会掉error
                 .subscribe(account -> {
@@ -49,20 +48,6 @@ public class WalletViewModule extends BaseViewModel {
                     createdWallet.postValue(account);
                 }, this::onCreateWalletError);
     }
-
-//    public void exportWallet(Wallet wallet, String storePassword) {
-//        exportWalletInteract
-//                .export(wallet, storePassword)
-//                .subscribe(exportedStore::postValue, this::onExportError);
-//    }
-//
-//    private void onFetchWallets(Wallet[] items) {
-//        progress.postValue(false);
-//        wallets.postValue(items);
-//        disposable = findDefaultWalletInteract
-//                .find()
-//                .subscribe(this::onDefaultWalletChanged, (Throwable t) -> {});
-//    }
 
     private void onDefaultWalletChanged(Wallet wallet) {
         progress.postValue(false);
@@ -76,4 +61,5 @@ public class WalletViewModule extends BaseViewModel {
     private void onCreateWalletError(Throwable throwable) {
         createWalletError.postValue(new ErrorEnvelope(C.ErrorCode.UNKNOWN, null));
     }
+
 }

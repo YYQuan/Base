@@ -3,6 +3,7 @@ package com.alphawizard.hdwallet.alphahdwallet.di;
 import android.app.Application;
 
 import com.alphawizard.hdwallet.alphahdwallet.App;
+import com.alphawizard.hdwallet.alphahdwallet.interact.InteractModule;
 
 
 import javax.inject.Singleton;
@@ -28,6 +29,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ActivityBindingModule.class,
         RepositoriesModule.class,
         ViewModuleModule.class,
+        InteractModule.class,
         ToolsModule.class,
         AndroidSupportInjectionModule.class})
 public interface AppComponent extends AndroidInjector<App> {

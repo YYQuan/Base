@@ -32,7 +32,7 @@ public interface FirstLaunchContract {
     }
 
     interface Presenter extends BaseContract.BasePresenter<View,FirstLaunchViewModule> {
-        Single<Wallet>  createWallet();
+        void  createWallet();
 
     }
 }

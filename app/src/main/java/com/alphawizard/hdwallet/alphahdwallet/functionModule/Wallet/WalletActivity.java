@@ -74,7 +74,6 @@ public class WalletActivity extends BasePresenterToolbarActivity<WalletContract.
     @Override
     public void initData() {
         super.initData();
-
         viewModel = ViewModelProviders.of(this, viewModuleFactory)
                 .get(WalletViewModule.class);
 //        viewModel.createdWallet().observe(this,this::onCreatedWallet);

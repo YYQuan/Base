@@ -10,6 +10,8 @@ import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.WalletsViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
+import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Log;
 
@@ -20,14 +22,6 @@ import butterknife.OnClick;
 
 public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunchContract.Presenter,FirstLaunchViewModule> implements FirstLaunchContract.View {
 
-    public static void show(Context context) {
-        context.startActivity(new Intent(context, FirstLaunchActivity.class));
-    }
-
-    @Inject
-    FirstLaunchViewModuleFactory walletsViewModuleFactory;
-    FirstLaunchViewModule viewModel;
-
     @BindView(R.id.btn_create_account)
     Button btnCreate;
 
@@ -35,10 +29,11 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
     Button btnImportAccount;
 
     @Inject
-    FirstLaunchContract.Presenter mPresenter;
+    FirstLaunchViewModuleFactory walletsViewModuleFactory;
+    FirstLaunchViewModule viewModel;
 
     @Inject
-    FirstLaunchRouter router;
+    FirstLaunchContract.Presenter mPresenter;
 
     @Override
     public int getContentLayoutID() {
@@ -61,15 +56,15 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
 
         viewModel = ViewModelProviders.of(this, walletsViewModuleFactory)
                 .get(FirstLaunchViewModule.class);
-//        viewModel.createdWallet().observe(this,this::onCreatedWallet);
+        mPresenter.takeView(this,viewModel);
 
+        viewModel.createdWallet().observe(this,this::onCreatedWallet);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
 
     @OnClick(R.id.btn_create_account)
     void onClickBtnCreate(){
@@ -84,5 +79,6 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
     @Override
     public void onCreatedWallet(Wallet wallet) {
         Log.d("onCreatedWallet");
+        viewModel.openWallet(this);
     }
 }

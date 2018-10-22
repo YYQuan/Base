@@ -1,6 +1,9 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
 
+import com.alphawizard.hdwallet.alphahdwallet.data.Local;
 import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
+import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 
 
 import dagger.Binds;
@@ -18,10 +21,9 @@ public abstract class FirstLaunchModule {
     @Binds
     abstract FirstLaunchContract.Presenter taskPresenter(FirstLaunchPresenter presenter);
 
-    @Provides
-    public static FirstLaunchRouter  providesFirstLaunchRouter(){
-        return new FirstLaunchRouter();
-    }
+//    请注意  和activity 关联的注解 要加上static
+
+
 
 
 }

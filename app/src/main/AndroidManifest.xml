@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".functionModule.main.MainActivity"
+            android:name=".functionModule.Wallet.WalletActivity"
             android:label="@string/title_activity_first_launch"></activity>
     </application>
 

@@ -28,8 +28,4 @@ public class RepositoriesModule {
 		return new GethKeystoreAccountService(file);
 	}
 
-
-
-
-
 }

@@ -19,7 +19,7 @@ public abstract class WalletModule {
     @Binds abstract WalletContract.Presenter taskPresenter(WalletPresenter presenter);
 
 //    @Provides
-//    WalletRouter providesWalletRouter(){
+//    public static WalletRouter providesWalletRouter(){
 //        return new WalletRouter();
 //    }
 }

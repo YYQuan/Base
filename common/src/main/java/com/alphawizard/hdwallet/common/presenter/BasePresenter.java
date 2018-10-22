@@ -27,8 +27,11 @@ public class BasePresenter<V extends BaseContract.BaseView,ViewModule  extends  
 
     @Override
     public void dropView() {
+//        在该架构下 ，一般view在这里就已经为null了， 还不清楚是哪一步把它置空了。
+        if(view!=null) {
+            view.setPresenter(null);
+        }
         this.view = null;
-        view.setPresenter(null);
         mViewModule = null;
     }
 
