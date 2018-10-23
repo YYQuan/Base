@@ -60,6 +60,7 @@ dependencies {
     //qiujuer tools
     compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     compile "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
+    compile "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
 
     //用来做底部面板
     compile "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
@@ -71,7 +72,6 @@ dependencies {
     //导入 support中的控件以及主题
     compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
 
-
     // Etherium client
     implementation "org.web3j:core:$rootProject.ext.web3jVersion"
     implementation "org.ethereum:geth:$rootProject.ext.gethVersion"
@@ -79,7 +79,6 @@ dependencies {
     // ReactiveX
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
-
 
     // Http client
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"

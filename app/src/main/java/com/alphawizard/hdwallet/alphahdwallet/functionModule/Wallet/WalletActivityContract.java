@@ -21,7 +21,7 @@ import com.alphawizard.hdwallet.common.presenter.BaseContract;
 /**
  * This specifies the contract between the view and the presenter.
  */
-public interface WalletContract {
+public interface WalletActivityContract {
 
     interface View extends BaseContract.BaseView<Presenter,WalletViewModule> {
         void showSendFragment();

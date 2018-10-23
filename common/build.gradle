@@ -41,9 +41,11 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
-
+// qiujuer tools
     compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     compile "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
+    compile "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
+
     //用来做底部面板
     compile "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
 

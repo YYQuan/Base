@@ -21,7 +21,9 @@ public class SharedPreferenceRepository implements PreferenceRepositoryType {
 
 	@Override
 	public String getCurrentWalletAddress() {
-		return pref.getString(CURRENT_ACCOUNT_ADDRESS_KEY, null);
+
+		String result = pref.getString(CURRENT_ACCOUNT_ADDRESS_KEY, null);
+		return result;
 	}
 
 	@Override

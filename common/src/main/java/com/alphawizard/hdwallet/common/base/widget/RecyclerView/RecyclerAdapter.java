@@ -228,6 +228,7 @@ public abstract class RecyclerAdapter <Data> extends RecyclerView.Adapter<Recycl
 
         public abstract  void  onBindViewHolder(Data data);
 
+//      不能再  onBindViewHolder中调用该方法， 否则会导致   崩溃，原因是因为 recycle view 在滑动当中不能执行 notify
         public void update( Data data){
             if(callback != null){
                 callback.update(this,data);

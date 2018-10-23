@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.alphawizard.hdwallet.alphahdwallet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -22,7 +26,10 @@
         </activity>
         <activity
             android:name=".functionModule.Wallet.WalletActivity"
-            android:label="@string/title_activity_first_launch"></activity>
+            android:label="@string/title_activity_first_launch" />
+        <activity
+            android:name=".functionModule.send.SendActivity"
+            android:label="@string/title_activity_send"></activity>
     </application>
 
 </manifest>

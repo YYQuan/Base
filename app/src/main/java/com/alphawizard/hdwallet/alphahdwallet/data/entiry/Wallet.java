@@ -3,7 +3,11 @@ package com.alphawizard.hdwallet.alphahdwallet.data.entiry;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Wallet implements Parcelable {
+import com.alphawizard.hdwallet.common.util.DiffUtilCallback;
+
+import java.util.Objects;
+
+public class Wallet implements Parcelable ,DiffUtilCallback.DiffRule<Wallet>{
     public final String address;
 
 	public Wallet(String address) {
@@ -38,5 +42,15 @@ public class Wallet implements Parcelable {
 	@Override
 	public void writeToParcel(Parcel parcel, int i) {
 		parcel.writeString(address);
+	}
+
+	@Override
+	public boolean isSame(Wallet old) {
+		return Objects.equals(address, old.address);
+	}
+
+	@Override
+	public boolean isChange(Wallet old) {
+		return Objects.equals(address, old.address);
 	}
 }

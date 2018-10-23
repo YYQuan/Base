@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.PreferenceRepositoryType;
 import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.SharedPreferenceRepository;
+import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.WalletRepository;
+import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.WalletRepositoryType;
 import com.alphawizard.hdwallet.alphahdwallet.service.AccountKeystoreService;
 import com.alphawizard.hdwallet.alphahdwallet.service.GethKeystoreAccountService;
 import java.io.File;
@@ -12,6 +14,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import okhttp3.OkHttpClient;
 
 @Module
 public class RepositoriesModule {
@@ -26,6 +29,18 @@ public class RepositoriesModule {
 	AccountKeystoreService provideAccountKeyStoreService(Context context) {
         File file = new File(context.getFilesDir(), "keystore/keystore");
 		return new GethKeystoreAccountService(file);
+	}
+
+//	@Singleton
+//	@Provides
+//	WalletRepositoryType provideWalletRepositoryType(OkHttpClient client) {
+//		return new WalletRepository(client);
+//	}
+
+	@Singleton
+	@Provides
+	WalletRepositoryType provideWalletRepositoryType() {
+		return new WalletRepository();
 	}
 
 }

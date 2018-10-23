@@ -45,7 +45,7 @@ public interface BaseContract {
 
         ViewModule  getViewModule();
 
-        void    setViewModule(ViewModule module);
+        void setViewModule(ViewModule module);
 
         void create();
         void start();

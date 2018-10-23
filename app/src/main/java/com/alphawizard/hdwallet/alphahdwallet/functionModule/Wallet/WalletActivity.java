@@ -10,28 +10,25 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
-import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.WalletsViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchViewModule;
 
 
-import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
-import com.alphawizard.hdwallet.common.presenter.BaseContract;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Account.AccountFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Accounts.AccountsFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Dimension.DimensionFragment;
 import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Helper.NavHelper;
-import com.alphawizard.hdwallet.common.util.Log;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class WalletActivity extends BasePresenterToolbarActivity<WalletContract.Presenter,WalletViewModule> implements WalletContract.View,
+public class WalletActivity extends BasePresenterToolbarActivity<WalletActivityContract.Presenter,WalletViewModule> implements WalletActivityContract.View,
         BottomNavigationView.OnNavigationItemSelectedListener,
         NavHelper.OnMenuSelector<Integer>{
 
     @Inject
-    WalletContract.Presenter mPresenter;
+    WalletActivityContract.Presenter mPresenter;
 
     @Inject
     WalletsViewModuleFactory viewModuleFactory;
@@ -54,7 +51,7 @@ public class WalletActivity extends BasePresenterToolbarActivity<WalletContract.
     }
 
     @Override
-    public WalletContract.Presenter initPresenter() {
+    public WalletActivityContract.Presenter initPresenter() {
         return mPresenter;
     }
 
@@ -109,7 +106,7 @@ public class WalletActivity extends BasePresenterToolbarActivity<WalletContract.
     }
 
     @Override
-    public void setPresenter(WalletContract.Presenter presenter) {
+    public void setPresenter(WalletActivityContract.Presenter presenter) {
 
     }
 

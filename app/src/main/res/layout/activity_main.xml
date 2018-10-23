@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".functionModule.Wallet.WalletActivity">
 
+
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -14,22 +16,14 @@
         android:background="@color/colorAccent"
         android:paddingTop="@dimen/statusBarSize"
         app:titleTextAppearance="@style/TextAppearance.Title" />
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/len_156"
-        android:text="@string/title_home"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <FrameLayout
         android:id="@+id/lay_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/len_52"
+        android:layout_marginTop="@dimen/actionBarWithStatusBarSize"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
     </FrameLayout>
     <android.support.design.widget.BottomNavigationView

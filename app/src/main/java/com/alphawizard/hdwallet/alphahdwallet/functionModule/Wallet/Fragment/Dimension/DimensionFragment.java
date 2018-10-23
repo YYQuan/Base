@@ -1,26 +1,26 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Dimension;
 
 import android.arch.lifecycle.ViewModelProviders;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.WalletsViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletActivityContract;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletViewModule;
 import com.alphawizard.hdwallet.common.presenter.BasePresenterFragment;
 
 import javax.inject.Inject;
 
-public class AccountsFragment extends BasePresenterFragment<WalletContract.Presenter,WalletViewModule> {
+public class DimensionFragment extends BasePresenterFragment<WalletActivityContract.Presenter,WalletViewModule> {
 
     @Inject
-    WalletContract.Presenter mPresenter;
+    WalletActivityContract.Presenter mPresenter;
 
     @Inject
     WalletsViewModuleFactory viewModuleFactory;
     WalletViewModule viewModel;
 
-
-
     @Override
-    public WalletContract.Presenter initPresenter() {
+    public WalletActivityContract.Presenter initPresenter() {
         return mPresenter;
     }
 
@@ -31,7 +31,7 @@ public class AccountsFragment extends BasePresenterFragment<WalletContract.Prese
 
     @Override
     public int getContentLayoutID() {
-        return R.layout.fragment_wallet_accounts;
+        return  R.layout.fragment_wallet_dimension;
     }
 
     @Override
