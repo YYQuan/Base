@@ -1,6 +1,7 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Account;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
@@ -15,6 +16,7 @@ import com.alphawizard.hdwallet.common.util.Log;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class AccountFragment extends BasePresenterFragment<AccountContract.Presenter,WalletViewModule> implements  AccountContract.View{
 
@@ -27,6 +29,14 @@ public class AccountFragment extends BasePresenterFragment<AccountContract.Prese
 
     @BindView(R.id.tv_balances)
     TextView mBalance;
+
+    @BindView(R.id.btn_send)
+    Button  mSend;
+
+    @OnClick(R.id.btn_send)
+    void clickBtnSend(){
+        viewModel.sendEth(getActivity());
+    }
 
     @Override
     public AccountContract.Presenter initPresenter() {

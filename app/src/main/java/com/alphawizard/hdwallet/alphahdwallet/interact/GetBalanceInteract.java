@@ -22,7 +22,6 @@ public class GetBalanceInteract {
         return mWalletRepositoryType
                 .balanceInWei(wallet)
                 .flatMap(ethBallance -> {
-
                      String balances = weiToEth(ethBallance, 5);
                     return Single.just(balances);
                 });

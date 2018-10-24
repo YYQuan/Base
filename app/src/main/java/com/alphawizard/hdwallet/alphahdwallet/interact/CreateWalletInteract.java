@@ -2,6 +2,7 @@ package com.alphawizard.hdwallet.alphahdwallet.interact;
 
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.PreferenceRepositoryType;
+import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.WalletRepositoryType;
 import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
 import com.alphawizard.hdwallet.alphahdwallet.service.AccountKeystoreService;
 import com.alphawizard.hdwallet.alphahdwallet.service.GethKeystoreAccountService;
@@ -17,30 +18,14 @@ import io.reactivex.Single;
 
 public class CreateWalletInteract {
 
-	AccountKeystoreService service ;
+	WalletRepositoryType walletRepository;
 
-
-	public CreateWalletInteract(AccountKeystoreService service) {
-		this.service = service;
+	public CreateWalletInteract(WalletRepositoryType walletRepository) {
+		this.walletRepository =  walletRepository;
 	}
 
 	public Single<Wallet> create() {
-		return generatePassword()
-		.flatMap(password -> service.createAccount(password));
-	}
-
-	//产生 随机  password
-	public Single<String> generatePassword() {
-		return Single.fromCallable(() -> {
-			byte bytes[] = new byte[256];
-			SecureRandom random = new SecureRandom();
-			random.nextBytes(bytes);
-			return new String(bytes);
-		});
-	}
-
-	public Single<Wallet[]> fetchAccounts(){
-		return service.fetchAccounts();
+		return walletRepository.createAccount();
 	}
 
 }

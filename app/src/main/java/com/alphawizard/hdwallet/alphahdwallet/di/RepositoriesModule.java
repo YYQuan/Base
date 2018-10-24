@@ -39,8 +39,10 @@ public class RepositoriesModule {
 
 	@Singleton
 	@Provides
-	WalletRepositoryType provideWalletRepositoryType() {
-		return new WalletRepository();
+	WalletRepositoryType provideWalletRepositoryType(OkHttpClient httpClient,
+													 PreferenceRepositoryType preferenceRepositoryType,
+													 AccountKeystoreService accountKeystoreService) {
+		return new WalletRepository(httpClient,preferenceRepositoryType,accountKeystoreService);
 	}
 
 }

@@ -1,4 +1,14 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.send;
 
-public class SendModule {
+import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
+
+import dagger.Binds;
+import dagger.Module;
+
+@Module
+public abstract class SendModule  {
+
+    @ActivityScoped
+    @Binds
+    abstract SendContract.Presenter sendPresenter(SendPresenter presenter);
 }

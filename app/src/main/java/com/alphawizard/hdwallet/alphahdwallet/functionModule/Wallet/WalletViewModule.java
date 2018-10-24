@@ -2,11 +2,14 @@ package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
 
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.WalletRepositoryType;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.send.SendRouter;
 import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.interact.DefaultWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.interact.FetchWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.interact.FindDefaultWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.interact.GetBalanceInteract;
 import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
@@ -29,7 +32,8 @@ public class WalletViewModule extends BaseViewModel {
     FindDefaultWalletInteract mFindDefaultWalletInteract;
     WalletRepositoryType  mWalletRepositoryType;
     GetBalanceInteract mGetBalanceInteract;
-
+    SendRouter  mSendRouter;
+    FetchWalletInteract mFetchWalletInteract;
     private final MutableLiveData<Wallet[]> wallets = new MutableLiveData<>();
     private final MutableLiveData<Wallet> defaultWallet = new MutableLiveData<>();
     private final MutableLiveData<Wallet> createdWallet = new MutableLiveData<>();
@@ -42,15 +46,19 @@ public class WalletViewModule extends BaseViewModel {
     public WalletViewModule(CreateWalletInteract createWalletInteract,
                             DefaultWalletInteract defaultWalletInteract,
                             FindDefaultWalletInteract findDefaultWalletInteract,
+                            FetchWalletInteract fetchWalletInteract,
                             GetBalanceInteract  getBalanceInteract,
+                            SendRouter  sendRouter,
                             WalletRepositoryType walletRepositoryType
                                 )
     {
         mCreateWalletInteract = createWalletInteract;
         mDefaultWalletInteract = defaultWalletInteract;
         mFindDefaultWalletInteract = findDefaultWalletInteract;
+        mFetchWalletInteract = fetchWalletInteract;
         mWalletRepositoryType  =  walletRepositoryType;
         mGetBalanceInteract =getBalanceInteract;
+        mSendRouter = sendRouter;
     }
 
     public LiveData<Wallet[]> wallets() {
@@ -82,7 +90,7 @@ public class WalletViewModule extends BaseViewModel {
 
     public void getAccounts(){
         progress.setValue(true);
-        mCreateWalletInteract
+        mFetchWalletInteract
                 .fetchAccounts()
                 .subscribe(accounts->{
                     wallets.postValue(accounts);
@@ -114,6 +122,10 @@ public class WalletViewModule extends BaseViewModel {
                         .getBalance(defaultWallet.getValue())
                         .subscribe(defaultWalletBalance::postValue,  this::onGetDefaultBalanceError))
                 .subscribe();
+    }
+
+    public void sendEth(Context context){
+        mSendRouter.open(context);
     }
 
     private void onGetDefaultBalanceError(Throwable throwable) {

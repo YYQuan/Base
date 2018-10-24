@@ -2,10 +2,12 @@ package com.alphawizard.hdwallet.alphahdwallet.interact;
 
 
 import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.PreferenceRepositoryType;
+import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.WalletRepository;
 import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.WalletRepositoryType;
 import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchRouter;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.send.SendRouter;
 import com.alphawizard.hdwallet.alphahdwallet.service.AccountKeystoreService;
 
 import dagger.Module;
@@ -19,18 +21,18 @@ import okhttp3.OkHttpClient;
 public class InteractModule {
 
     @Provides
-    static CreateWalletInteract  createWalletInteract(AccountKeystoreService service){
-        return new CreateWalletInteract( service);
+    static CreateWalletInteract  createWalletInteract(WalletRepositoryType walletRepositoryType ){
+        return new CreateWalletInteract(walletRepositoryType);
     }
 
     @Provides
-    static DefaultWalletInteract  defaultWalletInteract(PreferenceRepositoryType  preferenceRepositoryType){
-        return new DefaultWalletInteract(preferenceRepositoryType);
+    static DefaultWalletInteract  defaultWalletInteract(WalletRepositoryType walletRepositoryType, PreferenceRepositoryType  preferenceRepositoryType){
+        return new DefaultWalletInteract(walletRepositoryType,preferenceRepositoryType);
     }
 
     @Provides
-    static FindDefaultWalletInteract  findDefaultWalletInteract(AccountKeystoreService service,PreferenceRepositoryType  preferenceRepositoryType){
-        return new FindDefaultWalletInteract(service,preferenceRepositoryType);
+    static FindDefaultWalletInteract  findDefaultWalletInteract(PreferenceRepositoryType  preferenceRepositoryType, WalletRepositoryType walletRepositoryType){
+        return new FindDefaultWalletInteract(preferenceRepositoryType,walletRepositoryType);
     }
 
     @Provides
@@ -40,14 +42,28 @@ public class InteractModule {
 
 
     @Provides
+    static  SendTransactionInteract  sendTransactionInteract(WalletRepositoryType walletRepositoryType){
+        return new SendTransactionInteract(walletRepositoryType);
+    }
+
+    @Provides
+    static  FetchWalletInteract  fetchWalletInteract(WalletRepositoryType walletRepositoryType){
+        return new FetchWalletInteract(walletRepositoryType);
+    }
+
+    @Provides
     public static FirstLaunchRouter providesFirstLaunchRouter(){
         return new FirstLaunchRouter();
     }
 
-
     @Provides
     public static WalletRouter providesWalletRouter(){
         return new WalletRouter();
+    }
+
+    @Provides
+    public static SendRouter providesSendRouter(){
+        return new SendRouter();
     }
 
 }

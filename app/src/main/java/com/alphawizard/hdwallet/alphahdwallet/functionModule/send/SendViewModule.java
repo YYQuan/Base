@@ -1,4 +1,19 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.send;
 
-public class SendViewModule {
+import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.interact.SendTransactionInteract;
+import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
+
+public class SendViewModule extends BaseViewModel {
+
+    SendTransactionInteract  mSendTransactionInteract;
+
+    public SendViewModule(SendTransactionInteract mSendTransactionInteract) {
+        this.mSendTransactionInteract = mSendTransactionInteract;
+    }
+
+
+    public  void  sendTransaction(String from  ,String  to , String amount){
+        mSendTransactionInteract.sendTransaction(new Wallet(from),to,amount);
+    }
 }
