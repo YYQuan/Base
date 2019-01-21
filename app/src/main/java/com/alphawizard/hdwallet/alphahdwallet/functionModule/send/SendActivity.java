@@ -1,16 +1,11 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.send;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.os.Bundle;
-import android.app.Activity;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
-import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.SendViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.WalletsViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletActivityContract;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletViewModule;
+import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.SendViewModuleFactory;
 import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
 
 

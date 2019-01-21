@@ -1,12 +1,11 @@
 package com.alphawizard.hdwallet.alphahdwallet.di;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.FirstLaunchViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.SendViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.data.ViewModule.WalletsViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.SendViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.WalletRepositoryType;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchViewModule;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.send.SendRouter;
 import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.interact.DefaultWalletInteract;
@@ -18,6 +17,9 @@ import com.alphawizard.hdwallet.alphahdwallet.interact.SendTransactionInteract;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * 提供各个 Activity 所需的  ViewModule的Factory
+ */
 @Module
 public class ViewModuleModule {
 

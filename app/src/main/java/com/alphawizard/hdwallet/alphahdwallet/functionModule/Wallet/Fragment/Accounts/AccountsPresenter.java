@@ -3,8 +3,7 @@ package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Ac
 import android.support.v7.util.DiffUtil;
 
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Account.AccountFragment;
+import com.alphawizard.hdwallet.alphahdwallet.di.Scope.ActivityScoped;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletViewModule;
 import com.alphawizard.hdwallet.common.presenter.BaseRecyclerPresenter;
 import com.alphawizard.hdwallet.common.util.DiffUtilCallback;

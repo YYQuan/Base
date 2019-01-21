@@ -16,20 +16,13 @@
 
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
 
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.di.ActivityScoped;
+import com.alphawizard.hdwallet.alphahdwallet.di.Scope.ActivityScoped;
 
-import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
-import com.alphawizard.hdwallet.alphahdwallet.service.AccountKeystoreService;
-import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 import com.alphawizard.hdwallet.common.presenter.BasePresenter;
-import com.alphawizard.hdwallet.common.util.Log;
 
 import java.security.SecureRandom;
 
 import javax.inject.Inject;
-
-import io.reactivex.Single;
 
 
 @ActivityScoped

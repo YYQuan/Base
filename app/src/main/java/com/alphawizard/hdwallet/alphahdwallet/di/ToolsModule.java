@@ -11,6 +11,12 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 
+
+/**
+ *   dagger  提供   工具类 对象
+ */
+
+
 @Module
 class ToolsModule {
 

@@ -16,6 +16,10 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 
+
+/**
+ *  用于绑定     各个仓库  和服务
+ */
 @Module
 public class RepositoriesModule {
 	@Singleton
@@ -31,11 +35,6 @@ public class RepositoriesModule {
 		return new GethKeystoreAccountService(file);
 	}
 
-//	@Singleton
-//	@Provides
-//	WalletRepositoryType provideWalletRepositoryType(OkHttpClient client) {
-//		return new WalletRepository(client);
-//	}
 
 	@Singleton
 	@Provides

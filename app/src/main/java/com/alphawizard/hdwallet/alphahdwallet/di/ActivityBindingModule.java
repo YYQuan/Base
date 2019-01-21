@@ -2,9 +2,7 @@ package com.alphawizard.hdwallet.alphahdwallet.di;
 
 
 
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.ConfirmSend.ConfirmSendActivity;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.ConfirmSend.ConfirmSendModule;
+import com.alphawizard.hdwallet.alphahdwallet.di.Scope.ActivityScoped;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletActivity;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletModule;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchActivity;
@@ -21,6 +19,8 @@ import dagger.android.ContributesAndroidInjector;
  * nor do you need to tell these subcomponents that AppComponent exists.
  * We are also telling Dagger.Android that this generated SubComponent needs to include the specified modules and be aware of a scope annotation @ActivityScoped
  * When Dagger.Android annotation processor runs it will create 4 subcomponents for us.
+ *
+ *  用来 绑定   activity  和 其对应的module
  */
 @Module
 public abstract class ActivityBindingModule {
