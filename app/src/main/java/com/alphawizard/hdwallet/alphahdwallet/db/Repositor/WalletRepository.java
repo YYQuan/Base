@@ -81,7 +81,7 @@ public class WalletRepository implements WalletRepositoryType {
 
 	public Single<Wallet> getDefaultWallet(){
 		return Single.fromCallable(preferenceRepositoryType::getCurrentWalletAddress)
-				.flatMap(this::findWallet);
+				.flatMap(address -> findWallet(address));
 	}
 
 

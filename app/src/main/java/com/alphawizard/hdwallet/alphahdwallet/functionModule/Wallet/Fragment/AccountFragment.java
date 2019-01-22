@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Account;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.widget.Button;
@@ -8,8 +8,8 @@ import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletViewModule;
+import com.alphawizard.hdwallet.common.base.App.Fragment;
 import com.alphawizard.hdwallet.common.base.widget.RecyclerView.RecyclerAdapter;
-import com.alphawizard.hdwallet.common.presenter.BasePresenterFragment;
 import com.alphawizard.hdwallet.common.util.Log;
 
 import javax.inject.Inject;
@@ -17,10 +17,9 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class AccountFragment extends BasePresenterFragment<AccountContract.Presenter,WalletViewModule> implements  AccountContract.View{
+public class AccountFragment extends Fragment {
 
-    @Inject
-    AccountContract.Presenter mPresenter;
+
 
     @Inject
     WalletsViewModuleFactory viewModuleFactory;
@@ -38,16 +37,6 @@ public class AccountFragment extends BasePresenterFragment<AccountContract.Prese
     }
 
     @Override
-    public AccountContract.Presenter initPresenter() {
-        return mPresenter;
-    }
-
-    @Override
-    public WalletViewModule initViewModule() {
-        return viewModel;
-    }
-
-    @Override
     public int getContentLayoutID() {
         return  R.layout.fragment_wallet_account;
     }
@@ -57,15 +46,15 @@ public class AccountFragment extends BasePresenterFragment<AccountContract.Prese
         super.initData();
         viewModel = ViewModelProviders.of(this, viewModuleFactory)
                 .get(WalletViewModule.class);
-        getmPresenter().takeView(this,viewModel);
+
         viewModel.defaultWallet().observe(this,this::defaultWalletBalanceChange);
         viewModel.defaultWalletBalance().observe(this,this::defaultWalletBalanceChange);
-        mPresenter.getDefaultWallet();
+        viewModel.getDefaultWallet();
 
     }
 
     private void defaultWalletBalanceChange(Wallet wallet) {
-        mPresenter.getBalance();
+        viewModel.getBalance();
     }
 
     private void defaultWalletBalanceChange(String s) {
@@ -73,13 +62,5 @@ public class AccountFragment extends BasePresenterFragment<AccountContract.Prese
         mBalance.setText(s);
     }
 
-    @Override
-    public RecyclerAdapter<Wallet> getRecyclerViewAdapter() {
-        return null;
-    }
 
-    @Override
-    public void onRecyclerChange() {
-
-    }
 }

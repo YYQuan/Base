@@ -22,7 +22,11 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://maven.google.com" }
+        maven { url "https://jitpack.io" }
+        maven { url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master" }
     }
+
 }
 
 task clean(type: Delete) {
@@ -63,4 +67,7 @@ ext {
     okhttpVersion = "3.9.0"
     gsonVersion = "2.8.2"
     lifecycleVersion = "1.1.1"
+
+
+    baseRecyclerViewAdapterHelper  = "2.9.30"
 }

@@ -7,7 +7,7 @@ import android.widget.Button;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
-import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
+import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Log;
 
 import javax.inject.Inject;
@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunchContract.Presenter,FirstLaunchViewModule> implements FirstLaunchContract.View {
+public class FirstLaunchActivity extends ToolbarActivity {
 
     @BindView(R.id.btn_create_account)
     Button btnCreate;
@@ -27,23 +27,14 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
     FirstLaunchViewModuleFactory walletsViewModuleFactory;
     FirstLaunchViewModule viewModel;
 
-    @Inject
-    FirstLaunchContract.Presenter mPresenter;
 
     @Override
     public int getContentLayoutID() {
         return R.layout.activity_first_launch;
     }
 
-    @Override
-    public FirstLaunchContract.Presenter initPresenter() {
-        return mPresenter;
-    }
 
-    @Override
-    public FirstLaunchViewModule initViewModule() {
-        return viewModel;
-    }
+
 
     @Override
     public void initData() {
@@ -51,7 +42,7 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
 
         viewModel = ViewModelProviders.of(this, walletsViewModuleFactory)
                 .get(FirstLaunchViewModule.class);
-        mPresenter.takeView(this,viewModel);
+
 
         viewModel.createdWallet().observe(this,this::onCreatedWallet);
     }
@@ -63,7 +54,7 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
 
     @OnClick(R.id.btn_create_account)
     void onClickBtnCreate(){
-        mPresenter.createWallet();
+        viewModel.newWallet();
     }
 
     @OnClick(R.id.btn_import_account)
@@ -71,7 +62,7 @@ public class FirstLaunchActivity extends BasePresenterToolbarActivity<FirstLaunc
 
     }
 
-    @Override
+
     public void onCreatedWallet(Wallet wallet) {
         Log.d("onCreatedWallet");
         viewModel.openWallet(this);

@@ -50,6 +50,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ActivityBindingModule.class,
         /**
          * 提供  repositoriesModule  &  service
+         * 这里是真正提供  功能的地方
          */
         RepositoriesModule.class,
         /**

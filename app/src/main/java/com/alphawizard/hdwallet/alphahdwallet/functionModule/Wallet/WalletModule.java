@@ -2,13 +2,10 @@ package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.Scope.ActivityScoped;
 import com.alphawizard.hdwallet.alphahdwallet.di.Scope.FragmentScoped;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Account.AccountContract;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Account.AccountFragment;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Account.AccountPresenter;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Accounts.AccountsContract;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Accounts.AccountsFragment;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Accounts.AccountsPresenter;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Dimension.DimensionFragment;
+
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.AccountFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.AccountsFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.DimensionFragment;
 
 import dagger.Binds;
 import dagger.Module;
@@ -21,14 +18,10 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class WalletModule {
 
-    @ActivityScoped
-    @Binds abstract WalletActivityContract.Presenter walletPresenter(WalletActivityPresenter presenter);
 
-    @ActivityScoped
-    @Binds abstract AccountsContract.Presenter accountsPresenter(AccountsPresenter presenter);
 
-    @ActivityScoped
-    @Binds abstract AccountContract.Presenter accountPresenter(AccountPresenter presenter);
+
+
 
     @FragmentScoped
     @ContributesAndroidInjector

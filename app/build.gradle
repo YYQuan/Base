@@ -28,6 +28,14 @@ android {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+//            outputFileName = new File(defaultConfig.applicationId + "-" + buildType.name + "-v" +
+//                    defaultConfig.versionName + "-" + defaultConfig.versionCode + ".apk" ) )
+            outputFileName = new File("jikee" + "-" + buildType.name + "-v" +
+                    defaultConfig.versionName + "-" + defaultConfig.versionCode + ".apk" )
+        }
+    }
 }
 
 dependencies {
@@ -90,6 +98,9 @@ dependencies {
     //lifecycle
     implementation "android.arch.lifecycle:runtime:$rootProject.ext.lifecycleVersion"
     implementation "android.arch.lifecycle:extensions:$rootProject.ext.lifecycleVersion"
+
+    //    挺好用的  recyclerView的 adapter 的封装
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.baseRecyclerViewAdapterHelper"
 
     implementation project(':common')
 }

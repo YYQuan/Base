@@ -13,22 +13,21 @@ import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Account.AccountFragment;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Accounts.AccountsFragment;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.Dimension.DimensionFragment;
-import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.AccountFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.AccountsFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.DimensionFragment;
+import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Helper.NavHelper;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class WalletActivity extends BasePresenterToolbarActivity<WalletActivityContract.Presenter,WalletViewModule> implements WalletActivityContract.View,
+public class WalletActivity extends ToolbarActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener,
         NavHelper.OnMenuSelector<Integer>{
 
-    @Inject
-    WalletActivityContract.Presenter mPresenter;
+
 
     @Inject
     WalletsViewModuleFactory viewModuleFactory;
@@ -50,15 +49,9 @@ public class WalletActivity extends BasePresenterToolbarActivity<WalletActivityC
         return R.layout.activity_main;
     }
 
-    @Override
-    public WalletActivityContract.Presenter initPresenter() {
-        return mPresenter;
-    }
 
-    @Override
-    public WalletViewModule initViewModule() {
-        return viewModel;
-    }
+
+
 
     @Override
     public void initData() {
@@ -90,25 +83,7 @@ public class WalletActivity extends BasePresenterToolbarActivity<WalletActivityC
         navigation.setOnNavigationItemSelectedListener(this);
     }
 
-    @Override
-    public void showSendFragment() {
 
-    }
-
-    @Override
-    public void showRecordFragment() {
-
-    }
-
-    @Override
-    public void showReceiveFragment() {
-
-    }
-
-    @Override
-    public void setPresenter(WalletActivityContract.Presenter presenter) {
-
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -8,7 +8,5 @@ import dagger.Module;
 @Module
 public abstract class SendModule  {
 
-    @ActivityScoped
-    @Binds
-    abstract SendContract.Presenter sendPresenter(SendPresenter presenter);
+
 }

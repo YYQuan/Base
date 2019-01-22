@@ -6,7 +6,8 @@ import android.widget.EditText;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.SendViewModuleFactory;
-import com.alphawizard.hdwallet.common.presenter.BasePresenterToolbarActivity;
+import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
+
 
 
 import javax.inject.Inject;
@@ -14,10 +15,9 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SendActivity extends BasePresenterToolbarActivity<SendContract.Presenter,SendViewModule> implements SendContract.View{
+public class SendActivity extends ToolbarActivity {
 
-    @Inject
-    SendContract.Presenter mPresenter;
+
 
     @Inject
     SendViewModuleFactory viewModuleFactory;
@@ -33,15 +33,6 @@ public class SendActivity extends BasePresenterToolbarActivity<SendContract.Pres
     @BindView(R.id.btn_send)
     Button mSend;
 
-    @Override
-    public SendContract.Presenter initPresenter() {
-        return mPresenter;
-    }
-
-    @Override
-    public SendViewModule initViewModule() {
-        return viewModel;
-    }
 
     @Override
     public int getContentLayoutID() {
@@ -53,14 +44,13 @@ public class SendActivity extends BasePresenterToolbarActivity<SendContract.Pres
         super.initData();
         viewModel = ViewModelProviders.of(this, viewModuleFactory)
                 .get(SendViewModule.class);
-        getmPresenter().takeView(this,viewModel);
     }
 
     @OnClick(R.id.btn_send)
     void onClickSend(){
         String address = mAddresss.getText().toString();
         String amounts = mAmount.getText().toString();
-        mPresenter.sendTransaction("aa",address,amounts);
+        viewModel.sendTransaction("aa",address,amounts);
     }
 }
 

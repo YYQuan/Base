@@ -30,9 +30,7 @@
         <activity
             android:name=".functionModule.send.SendActivity"
             android:label="@string/title_activity_send" />
-        <activity
-            android:name=".functionModule.ConfirmSend.ConfirmSendActivity"
-            android:label="@string/title_activity_confirm_send"></activity>
+
     </application>
 
 </manifest>

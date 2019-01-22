@@ -13,9 +13,6 @@ import dagger.Module;
 @Module
 public abstract class FirstLaunchModule {
 
-    @ActivityScoped
-    @Binds
-    abstract FirstLaunchContract.Presenter taskPresenter(FirstLaunchPresenter presenter);
 
 //    请注意  和activity 关联的注解 要加上static
 
