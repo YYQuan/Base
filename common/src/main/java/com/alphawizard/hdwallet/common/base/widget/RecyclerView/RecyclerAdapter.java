@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.alphawizard.hdwallet.common.R;
 import com.alphawizard.hdwallet.common.util.DiffUtilCallback;
-import com.alphawizard.hdwallet.common.util.Log;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.loadmore.LoadMoreView;

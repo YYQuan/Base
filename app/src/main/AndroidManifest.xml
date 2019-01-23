@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".functionModule.fristLaunch.FirstLaunchActivity"
+            android:name=".functionModule.DemoFristLaunch.FirstLaunchActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.Main">
             <intent-filter>
@@ -54,7 +54,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".functionModule.Wallet.WalletActivity"
+            android:name=".functionModule.DemoWallet.WalletActivity"
             android:label="@string/title_activity_first_launch" />
         <activity
             android:name=".functionModule.send.SendActivity"

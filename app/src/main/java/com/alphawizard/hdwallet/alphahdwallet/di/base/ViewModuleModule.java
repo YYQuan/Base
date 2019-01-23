@@ -3,7 +3,7 @@ package com.alphawizard.hdwallet.alphahdwallet.di.base;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
 import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.interact.DefaultWalletInteract;
 

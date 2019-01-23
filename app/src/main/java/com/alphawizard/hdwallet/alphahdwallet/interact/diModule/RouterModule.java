@@ -1,8 +1,8 @@
 package com.alphawizard.hdwallet.alphahdwallet.interact.diModule;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchRouter;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchRouter;
 
 import dagger.Module;
 import dagger.Provides;

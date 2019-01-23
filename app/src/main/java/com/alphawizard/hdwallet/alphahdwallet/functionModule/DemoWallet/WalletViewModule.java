@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;

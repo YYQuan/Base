@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -14,9 +14,9 @@ import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.AccountFragment;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.AccountsFragment;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment.DimensionFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.AccountFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.AccountsFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.DimensionFragment;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Helper.NavHelper;
 

@@ -3,10 +3,10 @@ package com.alphawizard.hdwallet.alphahdwallet.di.base;
 
 
 import com.alphawizard.hdwallet.alphahdwallet.di.base.Scope.ActivityScoped;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletActivity;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletModule;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchActivity;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchModule;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletActivity;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletModule;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchActivity;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

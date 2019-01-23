@@ -4,8 +4,8 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchViewModule;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchViewModule;
 import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 
 public class FirstLaunchViewModuleFactory  implements ViewModelProvider.Factory{

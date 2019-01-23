@@ -3,7 +3,7 @@ package com.alphawizard.hdwallet.alphahdwallet.di.ViewModule;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletViewModule;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletViewModule;
 
 import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.interact.DefaultWalletInteract;

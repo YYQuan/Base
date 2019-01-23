@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,11 +10,11 @@ import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entiry.Bean.AdapterBean.WalletAdapter;
 import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletViewModule;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletViewModule;
 import com.alphawizard.hdwallet.common.base.App.Fragment;
 import com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.EmptyLayout;
+import com.alphawizard.hdwallet.common.util.MyLogger;
 
-import com.alphawizard.hdwallet.common.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,7 +59,7 @@ public class AccountsFragment extends Fragment {
     }
 
     private void onDefaultWallet(Wallet wallet) {
-        Log.d("default wallet  address:" +wallet.address);
+        MyLogger.jLog().d("default wallet  address:" +wallet.address);
         defaultWallet = wallet;
         mAdapter.setDefautlAddress(defaultWallet.address);
         mAdapter.notifyDataSetChanged();

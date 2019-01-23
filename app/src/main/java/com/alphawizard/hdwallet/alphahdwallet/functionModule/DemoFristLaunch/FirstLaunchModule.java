@@ -1,6 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
-
-import com.alphawizard.hdwallet.alphahdwallet.di.base.Scope.ActivityScoped;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch;
 
 
 import dagger.Module;

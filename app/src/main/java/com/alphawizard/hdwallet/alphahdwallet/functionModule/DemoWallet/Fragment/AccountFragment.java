@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.Fragment;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.widget.Button;
@@ -7,9 +7,9 @@ import android.widget.TextView;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletViewModule;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletViewModule;
 import com.alphawizard.hdwallet.common.base.App.Fragment;
-import com.alphawizard.hdwallet.common.util.Log;
+import com.alphawizard.hdwallet.common.util.MyLogger;
 
 import javax.inject.Inject;
 
@@ -54,7 +54,7 @@ public class AccountFragment extends Fragment {
     }
 
     private void defaultWalletBalanceChange(String s) {
-        Log.d(" balance : "+s);
+        MyLogger.jLog() .d(" balance : "+s);
         mBalance.setText(s);
     }
 

@@ -1,14 +1,14 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
 
 import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
 import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
-import com.alphawizard.hdwallet.common.util.Log;
+import com.alphawizard.hdwallet.common.util.MyLogger;
 
 public class FirstLaunchViewModule extends BaseViewModel {
 
@@ -40,7 +40,7 @@ public class FirstLaunchViewModule extends BaseViewModel {
     }
 
     private void onCreateWalletError(Throwable throwable) {
-        Log.d("onCreateWalletError" +throwable.getMessage());
+        MyLogger.jLog().d("onCreateWalletError" +throwable.getMessage());
     }
 
 

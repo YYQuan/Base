@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch;
+package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -10,8 +10,9 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.utils.CommonUtil;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
-import com.alphawizard.hdwallet.common.util.Log;
+import com.alphawizard.hdwallet.common.util.MyLogger;
 
 import javax.inject.Inject;
 
@@ -40,8 +41,10 @@ public class FirstLaunchActivity extends ToolbarActivity {
         return R.layout.activity_first_launch;
     }
 
-
-
+    @Override
+    public void initWidget() {
+        super.initWidget();
+    }
 
     @Override
     public void initData() {
@@ -49,7 +52,6 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
         viewModel = ViewModelProviders.of(this, walletsViewModuleFactory)
                 .get(FirstLaunchViewModule.class);
-
 
         viewModel.observeCreatedWallet().observe(this,this::onCreatedWallet);
     }
@@ -71,7 +73,7 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
 
     public void onCreatedWallet(Wallet wallet) {
-        Log.d("onCreatedWallet");
+        MyLogger.jLog().d("onCreatedWallet");
         viewModel.openWallet(this);
         ARouter.getInstance().build("/test/activity/wallet")
                 .navigation();
