@@ -4,6 +4,9 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
@@ -15,6 +18,8 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+
+@Route(path = "/test/activity/firstLaunch")
 public class FirstLaunchActivity extends ToolbarActivity {
 
     @BindView(R.id.btn_create_account)
@@ -27,6 +32,8 @@ public class FirstLaunchActivity extends ToolbarActivity {
     FirstLaunchViewModuleFactory walletsViewModuleFactory;
     FirstLaunchViewModule viewModel;
 
+    @Autowired
+    String  name ;
 
     @Override
     public int getContentLayoutID() {
@@ -65,6 +72,8 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
     public void onCreatedWallet(Wallet wallet) {
         Log.d("onCreatedWallet");
-        viewModel.openWallet(this);
+//        viewModel.openWallet(this);
+        ARouter.getInstance().build("/test/activity/wallet")
+                .navigation();
     }
 }

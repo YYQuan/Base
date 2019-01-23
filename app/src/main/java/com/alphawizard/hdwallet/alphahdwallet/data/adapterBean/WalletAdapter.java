@@ -38,6 +38,7 @@ public class WalletAdapter extends RecyclerAdapter<Wallet,WalletAdapter.WalletHo
         }
         helper.setAddressText(item.address);
         helper.setContent(item.address);
+
     }
 
     public String getDefautlAddress() {

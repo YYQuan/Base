@@ -13,6 +13,13 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+//        ARouter 支持
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+            }
+        }
+
     }
 
     buildTypes {
@@ -71,6 +78,10 @@ dependencies {
     //    挺好用的  recyclerView的 adapter 的封装
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.baseRecyclerViewAdapterHelper"
 
+
+    //    ARouter
+    compile "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.aRouterCompiler"
 
     implementation project(':lang')
 }

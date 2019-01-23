@@ -5,7 +5,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.example.android.architecture.blueprints.todomvpdagger"
+        applicationId "com.android.baseproject"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -13,6 +13,13 @@ android {
 
         multiDexEnabled true
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+
+//        ARouter 支持
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -32,7 +39,7 @@ android {
         variant.outputs.all { output ->
 //            outputFileName = new File(defaultConfig.applicationId + "-" + buildType.name + "-v" +
 //                    defaultConfig.versionName + "-" + defaultConfig.versionCode + ".apk" ) )
-            outputFileName = new File("jikee" + "-" + buildType.name + "-v" +
+            outputFileName = new File(defaultConfig.applicationId +"-" + buildType.name + "-v" +
                     defaultConfig.versionName + "-" + defaultConfig.versionCode + ".apk" )
         }
     }
@@ -101,6 +108,11 @@ dependencies {
 
     //    挺好用的  recyclerView的 adapter 的封装
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.baseRecyclerViewAdapterHelper"
+
+
+//    ARouter
+    compile "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.aRouterCompiler"
 
     implementation project(':common')
 }

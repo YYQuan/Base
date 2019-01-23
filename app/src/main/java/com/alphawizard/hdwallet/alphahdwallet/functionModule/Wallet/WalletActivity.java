@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
 
@@ -23,11 +24,10 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 
+@Route(path = "/test/activity/wallet")
 public class WalletActivity extends ToolbarActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener,
         NavHelper.OnMenuSelector<Integer>{
-
-
 
     @Inject
     WalletsViewModuleFactory viewModuleFactory;
@@ -48,10 +48,6 @@ public class WalletActivity extends ToolbarActivity implements
     public int getContentLayoutID() {
         return R.layout.activity_main;
     }
-
-
-
-
 
     @Override
     public void initData() {

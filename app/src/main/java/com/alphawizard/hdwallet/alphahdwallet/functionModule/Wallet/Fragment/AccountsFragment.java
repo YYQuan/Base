@@ -90,6 +90,9 @@ public class AccountsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mAdapter =new WalletAdapter(R.layout.cell_accounts_list,wallets);
+        mAdapter.setOnItemClickListener((adapter1,view1,positon1)-> {
+            viewModel.setDefaultWallet((Wallet)adapter1.getData().get(positon1));
+        });
         recyclerView.setAdapter(mAdapter);
 
         setPlaceHolderView(placeHolder);

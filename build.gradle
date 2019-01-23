@@ -70,4 +70,10 @@ ext {
 
 
     baseRecyclerViewAdapterHelper  = "2.9.30"
+
+//    ARouter
+    aRouterApi = "1.4.1"
+    aRouterCompiler = "1.2.2"
+
+
 }

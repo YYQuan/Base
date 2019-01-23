@@ -98,6 +98,7 @@ public abstract class RecyclerAdapter<Data  extends DiffUtilCallback.DiffRule<Da
         holder.setAdapter(this);
         bindViewClickListener(holder);
 
+
         return  (VH)holder;
     }
 

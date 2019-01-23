@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import java.util.List;
 
 //import butterknife.ButterKnife;
@@ -34,6 +36,7 @@ public abstract class Activity extends DaggerAppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         initWindow();
         super.onCreate(savedInstanceState);
+        ARouter.getInstance().inject(this);
         if(initArgs(getIntent().getExtras())){
 
             setContentView(getContentLayoutID());
