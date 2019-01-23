@@ -87,9 +87,7 @@ dependencies {
     //导入 support中的控件以及主题
     compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
 
-    // Etherium client
-    implementation "org.web3j:core:$rootProject.ext.web3jVersion"
-    implementation "org.ethereum:geth:$rootProject.ext.gethVersion"
+
 
     // ReactiveX
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
