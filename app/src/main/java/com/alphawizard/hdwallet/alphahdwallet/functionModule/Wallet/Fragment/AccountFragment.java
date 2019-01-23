@@ -6,10 +6,9 @@ import android.widget.TextView;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletViewModule;
 import com.alphawizard.hdwallet.common.base.App.Fragment;
-import com.alphawizard.hdwallet.common.base.widget.RecyclerView.RecyclerAdapter;
 import com.alphawizard.hdwallet.common.util.Log;
 
 import javax.inject.Inject;
@@ -33,7 +32,6 @@ public class AccountFragment extends Fragment {
 
     @OnClick(R.id.btn_send)
     void clickBtnSend(){
-        viewModel.sendEth(getActivity());
     }
 
     @Override
@@ -49,12 +47,10 @@ public class AccountFragment extends Fragment {
 
         viewModel.defaultWallet().observe(this,this::defaultWalletBalanceChange);
         viewModel.defaultWalletBalance().observe(this,this::defaultWalletBalanceChange);
-        viewModel.getDefaultWallet();
-
     }
 
     private void defaultWalletBalanceChange(Wallet wallet) {
-        viewModel.getBalance();
+
     }
 
     private void defaultWalletBalanceChange(String s) {

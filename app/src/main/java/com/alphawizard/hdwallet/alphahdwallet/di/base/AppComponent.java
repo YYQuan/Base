@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.di;
+package com.alphawizard.hdwallet.alphahdwallet.di.base;
 
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.interact.diModule.InteractModule;

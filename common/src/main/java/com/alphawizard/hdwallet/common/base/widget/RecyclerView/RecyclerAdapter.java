@@ -207,8 +207,8 @@ public abstract class RecyclerAdapter<Data  extends DiffUtilCallback.DiffRule<Da
 
 
 
-    public  class BaseHolder extends BaseViewHolder {
-         Unbinder unbinder;
+    public class BaseHolder extends BaseViewHolder {
+        Unbinder unbinder;
         public BaseHolder(View view) {
             super(view);
         }

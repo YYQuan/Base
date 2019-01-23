@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
 
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletRouter;
 import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
@@ -24,28 +24,28 @@ public class FirstLaunchViewModule extends BaseViewModel {
 
     private final MutableLiveData<Wallet> createdWallet = new MutableLiveData<>();
 
-    public LiveData<Wallet> createdWallet() {
+    public LiveData<Wallet> observeCreatedWallet() {
         return createdWallet;
     }
 
-    public void newWallet() {
+
+    public void createNewWallet() {
         progress.setValue(true);
         createWalletInteract
                 .create()
 //				create 过程中没有throw 就回调success ,如果有throw  异常的话，那么就会掉error
                 .subscribe(account -> {
-//                    fetchWallets();
-                    createdWallet.postValue(account);
+                    createdWallet.postValue(new Wallet(account));
                 }, this::onCreateWalletError);
-    }
-
-    public void openWallet(Context context){
-        walletRouter.open(context);
     }
 
     private void onCreateWalletError(Throwable throwable) {
         Log.d("onCreateWalletError" +throwable.getMessage());
-
-//        createWalletError.postValue(new ErrorEnvelope(C.ErrorCode.UNKNOWN, null));
     }
+
+
+    public   void  openWallet(Context context){
+        walletRouter.open(context);
+    }
+
 }

@@ -30,8 +30,8 @@ public class MyInterceptor implements IInterceptor {
      */
     @Override
     public void process(final Postcard postcard, final InterceptorCallback callback) {
-//        callback.onContinue(postcard);
-        callback.onInterrupt(null);
+        callback.onContinue(postcard);
+//        callback.onInterrupt(null);
 //        postcard.withString("extra", "我是在拦截器中附加的参数");
 //        callback.onContinue(postcard);
 

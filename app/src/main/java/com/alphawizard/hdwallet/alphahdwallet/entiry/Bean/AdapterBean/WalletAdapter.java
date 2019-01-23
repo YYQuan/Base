@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.data.adapterBean;
+package com.alphawizard.hdwallet.alphahdwallet.entiry.Bean.AdapterBean;
 
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -6,14 +6,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
 import com.alphawizard.hdwallet.common.base.widget.RecyclerView.RecyclerAdapter;
+
 
 import java.util.List;
 
 import butterknife.BindView;
 
-public class WalletAdapter extends RecyclerAdapter<Wallet,WalletAdapter.WalletHolder> {
+public class WalletAdapter extends RecyclerAdapter<Wallet, WalletAdapter.WalletHolder> {
     private String  defautlAddress ;
 
 
@@ -84,9 +85,6 @@ public class WalletAdapter extends RecyclerAdapter<Wallet,WalletAdapter.WalletHo
         public  void setContent(String  str){
             mContent.setText(str);
         }
-
-
-
 
 
     }

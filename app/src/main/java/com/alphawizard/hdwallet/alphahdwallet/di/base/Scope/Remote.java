@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alphawizard.hdwallet.alphahdwallet.di.Scope;
+package com.alphawizard.hdwallet.alphahdwallet.di.base.Scope;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -24,6 +24,6 @@ import javax.inject.Qualifier;
 @Qualifier
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Local {
+public @interface Remote {
 
 }

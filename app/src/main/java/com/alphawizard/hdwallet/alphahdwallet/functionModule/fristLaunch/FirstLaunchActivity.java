@@ -9,7 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Log;
 
@@ -51,7 +51,7 @@ public class FirstLaunchActivity extends ToolbarActivity {
                 .get(FirstLaunchViewModule.class);
 
 
-        viewModel.createdWallet().observe(this,this::onCreatedWallet);
+        viewModel.observeCreatedWallet().observe(this,this::onCreatedWallet);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
     @OnClick(R.id.btn_create_account)
     void onClickBtnCreate(){
-        viewModel.newWallet();
+        viewModel.createNewWallet();
     }
 
     @OnClick(R.id.btn_import_account)
@@ -72,7 +72,7 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
     public void onCreatedWallet(Wallet wallet) {
         Log.d("onCreatedWallet");
-//        viewModel.openWallet(this);
+        viewModel.openWallet(this);
         ARouter.getInstance().build("/test/activity/wallet")
                 .navigation();
     }

@@ -14,7 +14,7 @@ import io.reactivex.disposables.Disposable;
 public class BaseViewModel extends ViewModel {
 
 	protected final MutableLiveData<ErrorEnvelope> error = new MutableLiveData<>();
-	//	这个progress 表示的是 是否在读取中
+	//	这个progress 一般可以用来表示 是否在读取中
 	protected final MutableLiveData<Boolean> progress = new MutableLiveData<>();
 	protected Disposable disposable;
 

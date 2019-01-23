@@ -1,21 +1,22 @@
 package com.alphawizard.hdwallet.alphahdwallet.interact;
 
-import com.alphawizard.hdwallet.alphahdwallet.data.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.WalletRepositoryType;
+
+import com.alphawizard.hdwallet.alphahdwallet.service.DemoService;
+import com.alphawizard.hdwallet.alphahdwallet.service.DemoServiceInterface;
 
 import io.reactivex.Single;
 
 
 public class CreateWalletInteract {
 
-	WalletRepositoryType walletRepository;
+	DemoServiceInterface demoService;
 
-	public CreateWalletInteract(WalletRepositoryType walletRepository) {
-		this.walletRepository =  walletRepository;
+	public CreateWalletInteract(DemoServiceInterface demoService) {
+		this.demoService =  demoService;
 	}
 
-	public Single<Wallet> create() {
-		return walletRepository.createAccount();
+	public Single<String> create() {
+		return demoService.createAccount("");
 	}
 
 }

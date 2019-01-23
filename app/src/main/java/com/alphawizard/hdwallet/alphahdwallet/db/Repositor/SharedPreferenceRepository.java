@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import io.reactivex.Single;
+
 
 public class SharedPreferenceRepository implements PreferenceRepositoryType {
 
@@ -20,10 +22,8 @@ public class SharedPreferenceRepository implements PreferenceRepositoryType {
 	}
 
 	@Override
-	public String getCurrentWalletAddress() {
-
-		String result = pref.getString(CURRENT_ACCOUNT_ADDRESS_KEY, null);
-		return result;
+	public Single<String> getCurrentWalletAddress() {
+		return Single.fromCallable(()->pref.getString(CURRENT_ACCOUNT_ADDRESS_KEY, null));
 	}
 
 	@Override

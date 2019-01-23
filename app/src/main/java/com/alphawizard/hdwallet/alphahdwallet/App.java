@@ -5,7 +5,8 @@ package com.alphawizard.hdwallet.alphahdwallet;
 
 
 
-import com.alphawizard.hdwallet.alphahdwallet.di.DaggerAppComponent;
+
+import com.alphawizard.hdwallet.alphahdwallet.di.base.DaggerAppComponent;
 import com.alphawizard.hdwallet.common.base.App.Application;
 
 

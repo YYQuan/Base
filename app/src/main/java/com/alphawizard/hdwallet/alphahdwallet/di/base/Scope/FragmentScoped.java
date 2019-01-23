@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.Scope;
+package com.alphawizard.hdwallet.alphahdwallet.di.base.Scope;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

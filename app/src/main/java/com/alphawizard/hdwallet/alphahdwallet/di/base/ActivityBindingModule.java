@@ -1,14 +1,12 @@
-package com.alphawizard.hdwallet.alphahdwallet.di;
+package com.alphawizard.hdwallet.alphahdwallet.di.base;
 
 
 
-import com.alphawizard.hdwallet.alphahdwallet.di.Scope.ActivityScoped;
+import com.alphawizard.hdwallet.alphahdwallet.di.base.Scope.ActivityScoped;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletActivity;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.Wallet.WalletModule;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchActivity;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.fristLaunch.FirstLaunchModule;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.send.SendActivity;
-import com.alphawizard.hdwallet.alphahdwallet.functionModule.send.SendModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -35,9 +33,6 @@ public abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = WalletModule.class)
     abstract WalletActivity walletActivity();
 
-    @ActivityScoped
-    @ContributesAndroidInjector(modules = SendModule.class)
-    abstract SendActivity sendActivity();
 
 //    @ActivityScoped
 //    @ContributesAndroidInjector(modules = ConfirmSendModule.class)
