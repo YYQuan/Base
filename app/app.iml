@@ -16,8 +16,8 @@
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
-        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res/layout/activity" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res/layout/activity;file://$MODULE_DIR$/src/main/res/layout/fragment;file://$MODULE_DIR$/src/main/res/layout/item;file://$MODULE_DIR$/src/main/res/layout/normal;file://$MODULE_DIR$/src/main/res/layout/loading;file://$MODULE_DIR$/src/main/res/layout;file://$MODULE_DIR$/src/main/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
@@ -63,6 +63,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/res/layout/activity" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/res/layout/fragment" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/res/layout/item" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/res/layout/normal" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/res/layout/loading" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/res/layout" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/assets" type="java-resource" />
@@ -126,6 +132,7 @@
     <orderEntry type="library" name="Gradle: net.qiujuer.widget:airpanel-1.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout-1.1.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.lzy.net:okrx2-2.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.3.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:swiperefreshlayout-28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:arouter-api-1.4.1" level="project" />
@@ -149,6 +156,7 @@
     <orderEntry type="library" name="Gradle: net.qiujuer.genius:res-2.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife-8.8.1" level="project" />
     <orderEntry type="library" name="Gradle: net.qiujuer.genius:kit-handler-2.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.lzy.net:okgo-3.0.4" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-25.2.0" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0@jar" level="project" />
@@ -168,6 +176,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-core-3.0.1" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:extensions-1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.1.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.lzy.net:okserver-2.0.5" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxandroid-2.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
@@ -189,6 +198,7 @@
     <orderEntry type="library" name="Gradle: com.google.dagger:dagger-android-support-2.16" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-28.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-28.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: me.jessyan:autosize-1.1.2" level="project" />
     <orderEntry type="module" module-name="common" />
   </component>
 </module>

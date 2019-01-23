@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+
+
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -14,6 +17,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--  蓝湖的设计图  一般都是  375 - 667 -->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="375"/>
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="667"/>
         <activity
             android:name=".functionModule.DemoFristLaunch.FirstLaunchActivity"
             android:label="@string/app_name"

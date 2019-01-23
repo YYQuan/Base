@@ -28,6 +28,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layout/activity',
+                            'src/main/res/layout/fragment',
+                            'src/main/res/layout/item',
+                            'src/main/res/layout/normal',
+                            'src/main/res/layout/loading',
+                            'src/main/res/layout',
+                            'src/main/res'
+                    ]
+        }
+    }
+
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
@@ -111,6 +128,14 @@ dependencies {
 //    ARouter
     compile "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.aRouterCompiler"
+
+//  okgo
+    compile "com.lzy.net:okgo:$rootProject.ext.okgoVersion"
+    compile "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
+    compile "com.lzy.net:okserver:$rootProject.ext.okServer"
+
+//auto   size
+    implementation "me.jessyan:autosize:$rootProject.ext.autoSIzeVersion"
 
     implementation project(':common')
 }

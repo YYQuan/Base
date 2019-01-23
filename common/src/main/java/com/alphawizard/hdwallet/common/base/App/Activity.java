@@ -1,5 +1,6 @@
 package com.alphawizard.hdwallet.common.base.App;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,6 +13,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.alphawizard.hdwallet.common.R;
+import com.gyf.barlibrary.ImmersionBar;
+import com.lzy.okgo.OkGo;
 
 import java.util.List;
 
@@ -30,7 +34,7 @@ import dagger.android.support.DaggerAppCompatActivity;
 public abstract class Activity extends DaggerAppCompatActivity {
 
     boolean isFirstCreate = true;
-
+    protected ImmersionBar mImmersionBar;
     Unbinder unbinder;
 
     public  static  void show(Context context){
@@ -49,6 +53,9 @@ public abstract class Activity extends DaggerAppCompatActivity {
             window.setStatusBarColor(Color.TRANSPARENT);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+        if (mImmersionBar == null) {
+            mImmersionBar = ImmersionBar.with(this);
         }
         initWindow();
         super.onCreate(savedInstanceState);
@@ -150,5 +157,37 @@ public abstract class Activity extends DaggerAppCompatActivity {
 
         finish();
 
+    }
+
+    protected void initStatusBar() {
+//        mImmersionBar.transparentStatusBar().init();
+        mImmersionBar.statusBarDarkFont(true)
+                .navigationBarColor(R.color.white)
+                .init();
+    }
+
+    @SuppressWarnings("ResourceType")
+    protected void initStatusBarWithColor() {
+        mImmersionBar.statusBarColor(R.color.colorPrimary).statusBarView(R.id.status_bar_view).init();
+    }
+
+    @SuppressLint("ResourceType")
+    protected void initStatusBarWithColor(boolean dark,int color) {
+        mImmersionBar.statusBarDarkFont(dark).statusBarColor(color).statusBarView(R.id.status_bar_view).init();
+    }
+
+    @SuppressWarnings("ResourceType")
+    protected void initImmersionBarWithView() {
+        mImmersionBar.statusBarView(R.id.status_bar_view).init();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+        if (mImmersionBar!= null) {
+            mImmersionBar.destroy();
+        }
+        OkGo.getInstance().cancelAll();
     }
 }

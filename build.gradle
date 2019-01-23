@@ -76,5 +76,13 @@ ext {
 //  bar  library
     barLibrary = "2.1.4"
 
+//    okgo
+    okgoVersion  = "3.0.4"
+    okRxVersion = "2.0.2"
+    okServer  = "2.0.5"
+
+
+//    autoSize
+    autoSIzeVersion = "1.1.2"
 
 }

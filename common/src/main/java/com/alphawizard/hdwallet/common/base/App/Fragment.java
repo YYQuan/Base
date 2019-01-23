@@ -1,6 +1,7 @@
 package com.alphawizard.hdwallet.common.base.App;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 
 
 import com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.PlaceHolderView;
+import com.gyf.barlibrary.ImmersionBar;
+import com.lzy.okgo.OkGo;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -24,7 +27,10 @@ import butterknife.Unbinder;
 
 public abstract class Fragment extends dagger.android.support.DaggerFragment {
     protected Unbinder mUnbinder;
+    protected ImmersionBar mImmersionBar;
     protected View   mRoot;
+    protected Activity mActivity;
+
     private  boolean isFirst  = true ;
 
     public PlaceHolderView mPlaceHolderView;
@@ -40,12 +46,15 @@ public abstract class Fragment extends dagger.android.support.DaggerFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        mActivity = ((Activity) context);
         initArgs(getArguments());
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (mImmersionBar == null)
+            mImmersionBar = ImmersionBar.with(mActivity);
         super.onCreateView(inflater, container, savedInstanceState);
         if(mRoot==null) {
             mRoot = inflater.inflate(getContentLayoutID(), container, false);
@@ -110,5 +119,22 @@ public abstract class Fragment extends dagger.android.support.DaggerFragment {
 
     public void setPlaceHolderView(PlaceHolderView mPlaceHolderView) {
         this.mPlaceHolderView = mPlaceHolderView;
+    }
+
+    protected void initImmersionBar() {
+        if (mImmersionBar != null) mImmersionBar.init();
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        OkGo.getInstance().cancelAll();
+        mUnbinder.unbind();
+
+        if (mImmersionBar != null){
+            mImmersionBar.destroy();
+        }
+        super.onDestroyView();
+
     }
 }

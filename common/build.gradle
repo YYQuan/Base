@@ -88,7 +88,13 @@ dependencies {
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.aRouterCompiler"
 
     // 管理  bar  的辅助类
-    compile 'com.gyf.barlibrary:barlibrary:2.1.4'
+    compile "com.gyf.barlibrary:barlibrary:$rootProject.ext.barLibrary"
+
+//  okgo
+
+    compile "com.lzy.net:okgo:$rootProject.ext.okgoVersion"
+    compile "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
+    compile "com.lzy.net:okserver:$rootProject.ext.okServer"
 
     implementation project(':lang')
 }
