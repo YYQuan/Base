@@ -26,8 +26,8 @@
             android:value="667"/>
         <activity
             android:name=".functionModule.DemoFristLaunch.FirstLaunchActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.Main">
+            android:label="@string/app_name">
+            <!--android:theme="@style/AppTheme.Main"-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,9 +66,6 @@
         <activity
             android:name=".functionModule.DemoWallet.WalletActivity"
             android:label="@string/title_activity_first_launch" />
-        <activity
-            android:name=".functionModule.send.SendActivity"
-            android:label="@string/title_activity_send" />
 
     </application>
 

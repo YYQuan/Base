@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/actionBarWithStatusBarSize"
     android:orientation="vertical">
     <View
         android:id="@+id/status_bar_view"
@@ -17,27 +17,31 @@
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_centerVertical="true"
-            android:padding="15dp"
+            android:layout_width="20dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
             android:src="@mipmap/arrow_left" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="hello"
+            android:layout_centerHorizontal="true"
+            android:text="重置登录密码"
             android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentBottom="true"
+            android:textSize="18sp" />
         <LinearLayout
             android:id="@+id/layout_title_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+            android:layout_marginBottom="8dp"
+            android:layout_alignParentBottom="true"
             android:gravity="center_vertical">
 
             <TextView
@@ -47,21 +51,23 @@
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/image_title_right_icon"
                 android:textColor="@color/white"
-                android:text="rightTXT"
-                android:textSize="20sp"
+                android:text="保存"
+                android:textSize="12sp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
                 android:visibility="gone"
-                android:layout_marginRight="12dp"/>
+                />
             <ImageView
                 android:id="@+id/image_title_right_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:visibility="gone"
                 android:scaleType="fitXY"
-                android:padding="10dp"
-                android:src="@color/blue_700"
+                android:padding="5dp"
+                android:src="@drawable/ic_back"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="5dp"/>
         </LinearLayout>
 
     </RelativeLayout>
