@@ -8,8 +8,8 @@ import android.view.View;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.entiry.Bean.AdapterBean.WalletAdapter;
-import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.entity.Bean.AdapterBean.WalletAdapter;
+import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletViewModule;
 import com.alphawizard.hdwallet.common.base.App.Fragment;
 import com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.EmptyLayout;

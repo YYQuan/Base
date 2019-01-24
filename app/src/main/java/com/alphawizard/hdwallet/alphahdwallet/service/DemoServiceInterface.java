@@ -1,7 +1,5 @@
 package com.alphawizard.hdwallet.alphahdwallet.service;
 
-import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
-
 import io.reactivex.Single;
 
 public interface DemoServiceInterface {

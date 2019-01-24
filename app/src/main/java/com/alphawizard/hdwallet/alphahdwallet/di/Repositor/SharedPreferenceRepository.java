@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.db.Repositor;
+package com.alphawizard.hdwallet.alphahdwallet.di.Repositor;
 
 import android.content.Context;
 import android.content.SharedPreferences;

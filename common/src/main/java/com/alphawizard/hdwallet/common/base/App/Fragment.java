@@ -15,6 +15,8 @@ import com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.PlaceHolderView;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -56,16 +58,19 @@ public abstract class Fragment extends dagger.android.support.DaggerFragment {
         if (mImmersionBar == null)
             mImmersionBar = ImmersionBar.with(mActivity);
         super.onCreateView(inflater, container, savedInstanceState);
+
         if(mRoot==null) {
             mRoot = inflater.inflate(getContentLayoutID(), container, false);
-
+            mUnbinder = ButterKnife.bind(this,mRoot);
             initWidget(mRoot);
 
         }else{
+            mUnbinder = ButterKnife.bind(this,mRoot);
             if(mRoot.getParent()!=null){
                 ((ViewGroup)(mRoot.getParent())).removeView(mRoot);
             }
         }
+
         return mRoot;
     }
 
@@ -73,6 +78,8 @@ public abstract class Fragment extends dagger.android.support.DaggerFragment {
      * 第一次 初始化的Fragment才会被调用
      */
     public void initFirst() {
+        //        EventBus.getDefault().register(this);
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -90,7 +97,7 @@ public abstract class Fragment extends dagger.android.support.DaggerFragment {
      * @param view
      */
     public  void initWidget(View view){
-        mUnbinder = ButterKnife.bind(this,view);
+
     }
 
 
@@ -129,11 +136,14 @@ public abstract class Fragment extends dagger.android.support.DaggerFragment {
     @Override
     public void onDestroyView() {
         OkGo.getInstance().cancelAll();
+
         mUnbinder.unbind();
 
         if (mImmersionBar != null){
             mImmersionBar.destroy();
         }
+        //        EventBus.getDefault().register(this);
+        EventBus.getDefault().unregister(this);
         super.onDestroyView();
 
     }

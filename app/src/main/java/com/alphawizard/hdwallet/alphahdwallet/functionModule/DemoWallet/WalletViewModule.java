@@ -2,9 +2,9 @@ package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
-import com.alphawizard.hdwallet.alphahdwallet.interact.DefaultWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.DefaultWalletInteract;
 import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 
 public class WalletViewModule extends BaseViewModel {

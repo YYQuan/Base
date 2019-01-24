@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.entiry;
+package com.alphawizard.hdwallet.alphahdwallet.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;

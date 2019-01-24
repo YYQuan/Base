@@ -1,7 +1,6 @@
-package com.alphawizard.hdwallet.alphahdwallet.interact;
+package com.alphawizard.hdwallet.alphahdwallet.di.interact;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.service.DemoService;
 import com.alphawizard.hdwallet.alphahdwallet.service.DemoServiceInterface;
 
 import io.reactivex.Single;

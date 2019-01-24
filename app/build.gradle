@@ -137,5 +137,8 @@ dependencies {
 //auto   size
     implementation "me.jessyan:autosize:$rootProject.ext.autoSIzeVersion"
 
+//event bus
+    compile "org.greenrobot:eventbus:$rootProject.ext.eventBus"
+
     implementation project(':common')
 }

@@ -96,5 +96,9 @@ dependencies {
     compile "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
     compile "com.lzy.net:okserver:$rootProject.ext.okServer"
 
+//  event  bus
+    compile "org.greenrobot:eventbus:$rootProject.ext.eventBus"
+
+
     implementation project(':lang')
 }

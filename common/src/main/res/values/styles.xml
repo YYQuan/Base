@@ -6,7 +6,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-
         <!--qiujuer  genius 相关的属性   一般不用改变，固定的 ，直接引用即可-->
         <item name="gTextViewStyle">@style/Genius.Widget.TextView</item>
         <item name="gButtonStyle">@style/Genius.Widget.Button</item>

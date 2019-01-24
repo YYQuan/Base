@@ -4,9 +4,9 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
 
-import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
-import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 import com.alphawizard.hdwallet.common.util.MyLogger;
 

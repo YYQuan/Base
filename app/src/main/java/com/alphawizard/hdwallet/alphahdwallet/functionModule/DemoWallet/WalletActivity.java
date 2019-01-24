@@ -14,11 +14,14 @@ import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
 
 
+import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.AccountFragment;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.AccountsFragment;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.DimensionFragment;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Helper.NavHelper;
+
+import org.greenrobot.eventbus.EventBus;
 
 import javax.inject.Inject;
 
@@ -38,7 +41,7 @@ public class WalletActivity extends ToolbarActivity implements
 
     private NavHelper<Integer> mHelper;
 
-    private TextView mTextMessage;
+
 
     public static void show(Context context) {
         context.startActivity(new Intent(context, WalletActivity.class));
@@ -74,12 +77,19 @@ public class WalletActivity extends ToolbarActivity implements
         mHelper.add(R.id.action_wallet, new NavHelper.Tab<>(AccountFragment.class, R.string.title_wallet))
                 .add(R.id.action_receive, new NavHelper.Tab<>(DimensionFragment.class, R.string.title_receiver))
                 .add(R.id.action_account, new NavHelper.Tab<>(AccountsFragment.class, R.string.title_accounts));
-        mTextMessage = (TextView) findViewById(R.id.message);
+
 
         navigation.setOnNavigationItemSelectedListener(this);
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().post("hello");
+        EventBus.getDefault().postSticky("hello");
+        EventBus.getDefault().postSticky(new Wallet("hello"));
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

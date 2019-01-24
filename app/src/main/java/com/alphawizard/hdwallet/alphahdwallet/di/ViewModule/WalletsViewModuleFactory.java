@@ -5,8 +5,8 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletViewModule;
 
-import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
-import com.alphawizard.hdwallet.alphahdwallet.interact.DefaultWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.DefaultWalletInteract;
 
 public class WalletsViewModuleFactory implements ViewModelProvider.Factory {
 

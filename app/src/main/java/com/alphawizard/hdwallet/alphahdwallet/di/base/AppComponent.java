@@ -1,8 +1,8 @@
 package com.alphawizard.hdwallet.alphahdwallet.di.base;
 
 import com.alphawizard.hdwallet.alphahdwallet.App;
-import com.alphawizard.hdwallet.alphahdwallet.interact.diModule.InteractModule;
-import com.alphawizard.hdwallet.alphahdwallet.interact.diModule.RouterModule;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.diModule.InteractModule;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.diModule.RouterModule;
 
 
 import javax.inject.Singleton;

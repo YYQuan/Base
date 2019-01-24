@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.entiry.Bean.AdapterBean;
+package com.alphawizard.hdwallet.alphahdwallet.entity.Bean.AdapterBean;
 
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
-import com.alphawizard.hdwallet.alphahdwallet.entiry.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.common.base.widget.RecyclerView.RecyclerAdapter;
 
 

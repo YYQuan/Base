@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchViewModule;
-import com.alphawizard.hdwallet.alphahdwallet.interact.CreateWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
 
 public class FirstLaunchViewModuleFactory  implements ViewModelProvider.Factory{
 

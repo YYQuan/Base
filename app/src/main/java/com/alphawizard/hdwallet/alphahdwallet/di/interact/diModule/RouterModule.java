@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.interact.diModule;
+package com.alphawizard.hdwallet.alphahdwallet.di.interact.diModule;
 
 
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;

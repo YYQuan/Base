@@ -85,4 +85,8 @@ ext {
 //    autoSize
     autoSIzeVersion = "1.1.2"
 
+//event  bus
+    eventBus = "3.0.0"
+
+
 }

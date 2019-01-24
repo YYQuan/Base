@@ -2,18 +2,16 @@ package com.alphawizard.hdwallet.alphahdwallet.di.base;
 
 import android.content.Context;
 
-import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.PreferenceRepositoryType;
-import com.alphawizard.hdwallet.alphahdwallet.db.Repositor.SharedPreferenceRepository;
+import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.PreferenceRepositoryType;
+import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.SharedPreferenceRepository;
 
 import com.alphawizard.hdwallet.alphahdwallet.service.DemoServiceInterface;
 import com.alphawizard.hdwallet.alphahdwallet.service.DemoService;
-import java.io.File;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.OkHttpClient;
 
 
 /**

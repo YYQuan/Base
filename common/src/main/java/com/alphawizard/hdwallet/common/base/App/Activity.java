@@ -14,16 +14,27 @@ import android.view.WindowManager;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.alphawizard.hdwallet.common.R;
+import com.alphawizard.hdwallet.common.util.MyLogger;
 import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.cookie.CookieJarImpl;
+import com.lzy.okgo.cookie.store.SPCookieStore;
+import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 //import butterknife.ButterKnife;
 //import butterknife.Unbinder;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import dagger.android.support.DaggerAppCompatActivity;
+import okhttp3.OkHttpClient;
 
 /**
  *
@@ -57,6 +68,7 @@ public abstract class Activity extends DaggerAppCompatActivity {
         if (mImmersionBar == null) {
             mImmersionBar = ImmersionBar.with(this);
         }
+        EventBus.getDefault().register(this);
         initWindow();
         super.onCreate(savedInstanceState);
         ARouter.getInstance().inject(this);
@@ -64,11 +76,14 @@ public abstract class Activity extends DaggerAppCompatActivity {
             setContentView(getContentLayoutID());
             initBeforeInitData();
             initWidget();
+
             initData();
         }else{
             finish();
         }
     }
+
+
 
     /**
      * 在initArgs前，但在initData之后被调用
@@ -183,11 +198,20 @@ public abstract class Activity extends DaggerAppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+
         unbinder.unbind();
         if (mImmersionBar!= null) {
             mImmersionBar.destroy();
         }
+//        EventBus.getDefault().register(this);
+        EventBus.getDefault().unregister(this);
         OkGo.getInstance().cancelAll();
+        super.onDestroy();
+    }
+
+//    要把  eventbus  封装到   基类当中的话， 就必须要在基类注册一个接收方法才行
+    @Subscribe(sticky = true, threadMode = ThreadMode.BACKGROUND, priority = 300)
+    public void eventBusDemo(String  str) {
+//        Application.showToast("base activity  : "+str);
     }
 }
