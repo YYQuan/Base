@@ -34,8 +34,6 @@ public abstract class ActivityBindingModule {
     abstract WalletActivity walletActivity();
 
 
-//    @ActivityScoped
-//    @ContributesAndroidInjector(modules = ConfirmSendModule.class)
-//    abstract ConfirmSendActivity confirmSendActivity();
+
 
 }

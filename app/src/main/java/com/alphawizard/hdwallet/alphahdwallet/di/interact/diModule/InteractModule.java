@@ -2,10 +2,9 @@ package com.alphawizard.hdwallet.alphahdwallet.di.interact.diModule;
 
 
 import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.PreferenceRepositoryType;
-import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.RealmDBOperatorType;
+
 import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.di.interact.DefaultWalletInteract;
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.RealmTestDBInteract;
 import com.alphawizard.hdwallet.alphahdwallet.service.DemoServiceInterface;
 
 import dagger.Module;

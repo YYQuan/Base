@@ -3,8 +3,6 @@ package com.alphawizard.hdwallet.alphahdwallet.di.base;
 import android.content.Context;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.PreferenceRepositoryType;
-import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.RealmDBOperator;
-import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.RealmDBOperatorType;
 import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.SharedPreferenceRepository;
 
 import com.alphawizard.hdwallet.alphahdwallet.service.DemoServiceInterface;

@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
 
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.RealmTestDBInteract;
+
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
@@ -22,15 +22,15 @@ public class FirstLaunchViewModule extends BaseViewModel {
 
     CreateWalletInteract createWalletInteract ;
     WalletRouter  walletRouter;
-    RealmTestDBInteract realmTestDBInteract;
+
 
     public FirstLaunchViewModule(CreateWalletInteract createWalletInteract,
-                                 RealmTestDBInteract realmTestDBInteract,
+
                                  WalletRouter  router)
     {
 
         this.createWalletInteract = createWalletInteract;
-        this.realmTestDBInteract = realmTestDBInteract;
+
         walletRouter = router;
     }
 
@@ -69,8 +69,7 @@ public class FirstLaunchViewModule extends BaseViewModel {
     }
 
     public  void  addTestBean (TestDBBean  bean ){
-        realmTestDBInteract.addTestBean(bean)
-                .subscribe(this::addTestBeanSuccess,this::onError);
+
     }
     private void addTestBeanSuccess(Boolean result) {
         addTestBoolean.postValue(result);
@@ -78,8 +77,7 @@ public class FirstLaunchViewModule extends BaseViewModel {
     }
 
     public void  findAllTestBean(){
-        realmTestDBInteract.findAll(TestDBBean.class)
-                .subscribe(this::findAllTestBeanResult,this::onError);
+
     }
 
     private void findAllTestBeanResult(RealmResults<TestDBBean> realmObjects) {
