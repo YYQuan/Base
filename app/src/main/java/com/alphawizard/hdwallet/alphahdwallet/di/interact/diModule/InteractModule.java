@@ -2,8 +2,10 @@ package com.alphawizard.hdwallet.alphahdwallet.di.interact.diModule;
 
 
 import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.PreferenceRepositoryType;
+import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.RealmDBOperatorType;
 import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.di.interact.DefaultWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.RealmTestDBInteract;
 import com.alphawizard.hdwallet.alphahdwallet.service.DemoServiceInterface;
 
 import dagger.Module;
@@ -26,6 +28,11 @@ public class InteractModule {
     static DefaultWalletInteract defaultWalletInteract( PreferenceRepositoryType  preferenceRepositoryType){
         return new DefaultWalletInteract(preferenceRepositoryType);
     }
+
+//    @Provides
+//    static RealmTestDBInteract realmTestDBInteract(RealmDBOperatorType realmDBOperatorType){
+//        return new RealmTestDBInteract(realmDBOperatorType);
+//    }
 
 
 

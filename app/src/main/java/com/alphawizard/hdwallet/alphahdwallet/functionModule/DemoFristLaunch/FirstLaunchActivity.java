@@ -16,6 +16,7 @@ import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
+import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.MyLogger;
 import com.lzy.okgo.OkGo;
@@ -27,16 +28,25 @@ import com.lzy.okrx2.adapter.ObservableResponse;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.security.SecureRandom;
+import java.util.List;
+import java.util.Observable;
+import java.util.Random;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Flowable;
 import io.reactivex.Observer;
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import io.realm.Realm;
+import io.realm.RealmObject;
+import io.realm.RealmResults;
 
 
 @Route(path = "/test/activity/firstLaunch")
@@ -84,7 +94,8 @@ public class FirstLaunchActivity extends ToolbarActivity {
                 .get(FirstLaunchViewModule.class);
 
         viewModel.observeCreatedWallet().observe(this,this::onCreatedWallet);
-
+        viewModel.observeAddTestBoolean().observe(this,this::obAddTest);
+        viewModel.observeFindAllTestBoolean().observe(this,this::obFindAllTest);
         OkGo.<String>get(URLConstant.URL_BAIDU)
                 .cacheKey(URLConstant.URLBAIDU_CACHE)
                 .cacheMode(CacheMode.FIRST_CACHE_THEN_REQUEST)
@@ -127,6 +138,16 @@ public class FirstLaunchActivity extends ToolbarActivity {
                 });
     }
 
+    private void obFindAllTest(List<TestDBBean> realmObjects) {
+        Flowable.fromIterable(realmObjects)
+                .observeOn(Schedulers.io())
+                .subscribe(object ->  MyLogger.jLog().d("ob find all test "+object.getName()));
+    }
+
+    private void obAddTest(Boolean aBoolean) {
+        App.showToast("obAddTest result :"+aBoolean);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,12 +155,15 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
     @OnClick(R.id.btn_create_account)
     void onClickBtnCreate(){
-        viewModel.createNewWallet();
+//        viewModel.createNewWallet();
+        viewModel.findAllTestBean();
     }
 
     @OnClick(R.id.btn_import_account)
     void onClickBtnImport(){
+         Random random = new  Random(5);
 
+        viewModel.addTestBean(new TestDBBean(""+random.nextInt(),"name_"+random.nextInt(),random.nextInt()));
     }
 
 
