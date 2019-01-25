@@ -144,7 +144,8 @@ public class FirstLaunchActivity extends ToolbarActivity {
                 .subscribe(object ->  MyLogger.jLog().d("ob find all test "+object.getName()));
     }
 
-    private void obAddTest(Boolean aBoolean) {
+    private void
+    obAddTest(Boolean aBoolean) {
         App.showToast("obAddTest result :"+aBoolean);
     }
 

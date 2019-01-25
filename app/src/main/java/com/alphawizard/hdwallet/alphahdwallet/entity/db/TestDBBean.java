@@ -12,7 +12,10 @@ public class TestDBBean extends RealmObject {
     @PrimaryKey
     private String id;
 
-    public TestDBBean(String id,String name, int age) {
+    public TestDBBean() {
+    }
+
+    public TestDBBean(String id, String name, int age) {
         this.name = name;
         this.age = age;
         this.id = id;

@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
 
 
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.RealmTestDBInteract;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
@@ -14,6 +15,7 @@ import com.alphawizard.hdwallet.common.util.MyLogger;
 
 import java.util.List;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
@@ -22,15 +24,15 @@ public class FirstLaunchViewModule extends BaseViewModel {
 
     CreateWalletInteract createWalletInteract ;
     WalletRouter  walletRouter;
-
+    RealmTestDBInteract mRealmTestDBInteract;
 
     public FirstLaunchViewModule(CreateWalletInteract createWalletInteract,
-
+                                 RealmTestDBInteract realmTestDBInteract,
                                  WalletRouter  router)
     {
 
         this.createWalletInteract = createWalletInteract;
-
+        mRealmTestDBInteract = realmTestDBInteract;
         walletRouter = router;
     }
 
@@ -69,7 +71,9 @@ public class FirstLaunchViewModule extends BaseViewModel {
     }
 
     public  void  addTestBean (TestDBBean  bean ){
-
+        mRealmTestDBInteract.addTestBean(bean)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::addTestBeanSuccess);
     }
     private void addTestBeanSuccess(Boolean result) {
         addTestBoolean.postValue(result);
@@ -77,7 +81,8 @@ public class FirstLaunchViewModule extends BaseViewModel {
     }
 
     public void  findAllTestBean(){
-
+        mRealmTestDBInteract.findAll(TestDBBean.class)
+                .subscribe(this::findAllTestBeanResult);
     }
 
     private void findAllTestBeanResult(RealmResults<TestDBBean> realmObjects) {
