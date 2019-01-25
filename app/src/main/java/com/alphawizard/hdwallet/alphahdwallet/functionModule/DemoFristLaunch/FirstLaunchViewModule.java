@@ -18,6 +18,7 @@ public class FirstLaunchViewModule extends BaseViewModel {
     public FirstLaunchViewModule(CreateWalletInteract createWalletInteract,
                                  WalletRouter  router)
     {
+
         this.createWalletInteract = createWalletInteract;
         walletRouter = router;
     }
