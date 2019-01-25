@@ -3,6 +3,7 @@ package com.alphawizard.hdwallet.alphahdwallet.di.base;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.interact.RealmTestDBInteract;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
 import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.alphahdwallet.di.interact.DefaultWalletInteract;
@@ -25,8 +26,11 @@ public class ViewModuleModule {
 
 
     @Provides
-    FirstLaunchViewModuleFactory providesFirstLaunchViewModule(CreateWalletInteract interact, WalletRouter router){
+    FirstLaunchViewModuleFactory providesFirstLaunchViewModule(CreateWalletInteract interact,
+//                                                               RealmTestDBInteract  realmTestDBInteract,
+                                                               WalletRouter router){
         return  new FirstLaunchViewModuleFactory(interact,router);
+//        return  new FirstLaunchViewModuleFactory(interact,realmTestDBInteract,router);
     }
 
 }
