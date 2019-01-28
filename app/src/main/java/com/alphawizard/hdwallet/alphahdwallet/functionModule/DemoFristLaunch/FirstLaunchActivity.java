@@ -158,8 +158,9 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
     @OnClick(R.id.btn_create_account)
     void onClickBtnCreate(){
-//        viewModel.createNewWallet();
-        viewModel.findAllTestBean();
+        viewModel.createNewWallet();
+//        viewModel.openWallet(this);
+//        viewModel.findAllTestBean();
     }
 
     @OnClick(R.id.btn_import_account)

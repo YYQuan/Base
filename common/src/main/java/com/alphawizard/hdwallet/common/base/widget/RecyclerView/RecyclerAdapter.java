@@ -65,8 +65,9 @@ public abstract class RecyclerAdapter<Data  extends DiffUtilCallback.DiffRule<Da
 
         switch (viewType) {
             case LOADING_VIEW:
-                view = getItemView(mLoadMoreView.getLayoutId(), parent);
-                holder =getLoadingView(parent);
+                    view = getItemView(mLoadMoreView.getLayoutId(), parent);
+
+                holder =getLoadingView(view);
                 break;
             case HEADER_VIEW:
                 view = getHeaderLayout();
@@ -81,14 +82,16 @@ public abstract class RecyclerAdapter<Data  extends DiffUtilCallback.DiffRule<Da
                 holder = createBaseViewHolder(view);
                 break;
             default:
-//                super.onCreateViewHolder(parent, viewType);
+                super.onCreateViewHolder(parent, viewType);
                 view = getItemView(mLayoutResId, parent);
                 holder = onCreateDefViewHolder(view, viewType);
 
+
+                break;
+
         }
-
-
 //        让 view中绑定了viewHolder的信息 这样view能够得到holder
+
         if(view !=null) {
             view.setTag(R.id.ViewHolder_Tag, holder);
             holder.unbinder = ButterKnife.bind(holder, view);
@@ -176,7 +179,7 @@ public abstract class RecyclerAdapter<Data  extends DiffUtilCallback.DiffRule<Da
     protected void convert(VH holder, Data item) {
 
         holderConvert( holder,item);
-//        onRecyclerChange(holder,item);
+        onRecyclerChange(holder,item);
 
     }
 
@@ -193,7 +196,14 @@ public abstract class RecyclerAdapter<Data  extends DiffUtilCallback.DiffRule<Da
     }
 
 
+    /**
+     * 一定要注意
+     * 用这种方式刷新时 ，  参数对象不要是 当前的adapter 引用的data 对象
+     * 要不对导致数组越界崩溃
+     * @param list
+     */
     public void refreshData(  List<Data> list){
+
         if(list!=null&&list.size()>0) {
             // 进行数据对比
             DiffUtil.Callback callback = new DiffUtilCallback<>(getData(), list);
@@ -205,7 +215,14 @@ public abstract class RecyclerAdapter<Data  extends DiffUtilCallback.DiffRule<Da
     }
 
 
-
+    /**
+     *      如果要在  子类当中 使用  butterknife  ，
+     *     控件 上除了  bindview  注解之外   还必须 加入
+     *      @Nullable
+     *      注解，
+     *      因为holder 不只要我们的目标holder 还有 load  foot  ,header 等holder
+     *      所以说  控件是很有可能为空的。
+      */
     public class BaseHolder extends BaseViewHolder {
         Unbinder unbinder;
         public BaseHolder(View view) {

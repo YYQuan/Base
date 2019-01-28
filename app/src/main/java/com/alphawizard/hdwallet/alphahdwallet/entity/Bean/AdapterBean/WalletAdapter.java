@@ -52,18 +52,21 @@ public class WalletAdapter extends RecyclerAdapter<Wallet, WalletAdapter.WalletH
 
 
     class WalletHolder  extends RecyclerAdapter.BaseHolder {
-
+        @Nullable
         @BindView(R.id.txt_title)
         TextView mTitle;
-
+        @Nullable
         @BindView(R.id.txt_content)
         TextView mContent;
-
+        @Nullable
         @BindView(R.id.iv_eth)
         ImageView mImageView;
 
         public WalletHolder(View view) {
             super(view);
+//            mTitle  = view.findViewById(R.id.txt_title);
+//            mContent  = view.findViewById(R.id.txt_content);
+//            mImageView  = view.findViewById(R.id.iv_eth);
 
         }
 

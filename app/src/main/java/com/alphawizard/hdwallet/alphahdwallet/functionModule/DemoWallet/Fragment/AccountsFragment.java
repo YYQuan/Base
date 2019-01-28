@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
@@ -23,6 +24,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
+import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class AccountsFragment extends Fragment {
 
@@ -38,10 +43,19 @@ public class AccountsFragment extends Fragment {
     @BindView(R.id.recyclerView_accounts)
     RecyclerView recyclerView;
 
+    @OnClick(R.id.btn_test)
+    void   clickTest(){
+       List<Wallet> walletArrays = new ArrayList<>();
+        for (int i = 0; i < 30; i++) {
+            walletArrays.add(new Wallet(" " + i));
+        }
+        mAdapter.refreshData(walletArrays);
+    }
+
     WalletAdapter mAdapter;
 
     private Wallet defaultWallet ;
-    List<Wallet>  wallets =  new ArrayList<>();
+
 
     @Override
     public int getContentLayoutID() {
@@ -74,7 +88,7 @@ public class AccountsFragment extends Fragment {
         if(walletArrays.length>0){
             placeHolder.triggerOkOrEmpty(true);
         }
-        wallets = Arrays.asList(walletArrays);
+        List<Wallet>  wallets =  Arrays.asList(walletArrays);
         mAdapter.refreshData(wallets);
 
     }
@@ -82,15 +96,63 @@ public class AccountsFragment extends Fragment {
     @Override
     public void initWidget(View view) {
         super.initWidget(view);
+        List<Wallet>  wallets =  new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+       for(int i = 10 ;i<30;i++){
+           wallets.add(new Wallet(" "+i));
+       }
 
         mAdapter =new WalletAdapter(R.layout.cell_accounts_list,wallets);
-        mAdapter.setOnItemClickListener((adapter1,view1,positon1)-> {
+
+//         下拉  刷新
+////            请不要  直接的在 主线中用这个来刷新 ，会 由于刷新太快 而导致出错
+       mAdapter.setOnLoadMoreListener(()->{
+            App.showToast("Load  more");
+           Single.fromCallable(()->{
+               List<Wallet>  wallets1 =  new ArrayList<>();
+
+               for (int i = 0; i < mAdapter.getData().size()+10; i++) {
+                   wallets1.add(new Wallet(" " + i));
+               }
+               return  wallets1;
+           }).subscribeOn(Schedulers.io())
+                   .observeOn(AndroidSchedulers.mainThread())
+
+                   .subscribe((param)->{
+                       mAdapter.refreshData(param);
+//                mAdapter.loadMoreEnd();
+                       mAdapter.loadMoreComplete();
+                   });
+
+
+//            recyclerView.postDelayed(()-> {
+//                List<Wallet>  wallets1 =  new ArrayList<>();
+//
+//                for (int i = 0; i < mAdapter.getData().size()+10; i++) {
+//                    wallets1.add(new Wallet(" " + i));
+//                }
+//                mAdapter.refreshData(wallets1);
+////                mAdapter.loadMoreEnd();
+//                mAdapter.loadMoreComplete();
+//            },1000);
         });
+        mAdapter.setOnItemClickListener((adapter1,view1,positon1)-> {
+            App.showToast("setOnItemClickListener  ");
+            wallets.clear();
+
+            for (int i = 0; i < 30; i++) {
+                wallets.add(new Wallet(" " + i));
+            }
+            mAdapter.refreshData(wallets);
+        });
+
         recyclerView.setAdapter(mAdapter);
 
         setPlaceHolderView(placeHolder);
         placeHolder.bind(recyclerView);
+
+        placeHolder.triggerOk();
+
     }
 
 

@@ -5,7 +5,10 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".functionModule.DemoWallet.WalletActivity">
-
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.EmptyLayout
         android:id="@+id/place_holder"
         android:layout_width="match_parent"
