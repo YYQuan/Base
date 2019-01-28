@@ -29,6 +29,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Random;
@@ -96,6 +97,7 @@ public class FirstLaunchActivity extends ToolbarActivity {
         viewModel.observeCreatedWallet().observe(this,this::onCreatedWallet);
         viewModel.observeAddTestBoolean().observe(this,this::obAddTest);
         viewModel.observeFindAllTestBoolean().observe(this,this::obFindAllTest);
+
         OkGo.<String>get(URLConstant.URL_BAIDU)
                 .cacheKey(URLConstant.URLBAIDU_CACHE)
                 .cacheMode(CacheMode.FIRST_CACHE_THEN_REQUEST)
@@ -139,13 +141,13 @@ public class FirstLaunchActivity extends ToolbarActivity {
     }
 
     private void obFindAllTest(List<TestDBBean> realmObjects) {
+        MyLogger.jLog().d("current    thread  ");
         Flowable.fromIterable(realmObjects)
                 .observeOn(Schedulers.io())
                 .subscribe(object ->  MyLogger.jLog().d("ob find all test "+object.getName()));
     }
 
-    private void
-    obAddTest(Boolean aBoolean) {
+    private void obAddTest(Boolean aBoolean) {
         App.showToast("obAddTest result :"+aBoolean);
     }
 
@@ -162,9 +164,15 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
     @OnClick(R.id.btn_import_account)
     void onClickBtnImport(){
-         Random random = new  Random(5);
-
-        viewModel.addTestBean(new TestDBBean(""+random.nextInt(),"name_"+random.nextInt(),random.nextInt()));
+        List  list =  new ArrayList();
+        Random random = new Random();
+        int number = random.nextInt(50);
+        for(int i = 0  ; i<5;i++) {
+            number  += i;
+            TestDBBean bean =new TestDBBean("" + number, "name_" + number, number);
+            list.add(bean);
+        }
+        viewModel.addTestBeans(list);
     }
 
 

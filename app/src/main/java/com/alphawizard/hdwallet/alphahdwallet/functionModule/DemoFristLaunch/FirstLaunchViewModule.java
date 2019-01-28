@@ -75,18 +75,51 @@ public class FirstLaunchViewModule extends BaseViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::addTestBeanSuccess);
     }
+
+    public  void  addTestBeans (List<TestDBBean>  bean ){
+        mRealmTestDBInteract.addTestBeans(bean)
+                .observeOn(Schedulers.io())
+                .subscribe(this::addTestBeanSuccess);
+    }
+
+
     private void addTestBeanSuccess(Boolean result) {
         addTestBoolean.postValue(result);
         MyLogger.jLog().d( "addTestBeanSuccess  result : "+ result );
     }
 
     public void  findAllTestBean(){
-        mRealmTestDBInteract.findAll(TestDBBean.class)
-                .subscribe(this::findAllTestBeanResult);
+        mRealmTestDBInteract.findAllTestBean()
+                .subscribe(this::findAllTestBeanResult,this::onError);
+//        mRealmTestDBInteract.findEqaultTestBeanId("21")
+//                .subscribe(this::findAllTestBeanResult);
+//        mRealmTestDBInteract.findEqaultTestBeanAge(49)
+//                .subscribe(this::findAllTestBeanResult);
+//        mRealmTestDBInteract.findLessTestBeanAge(27)
+//                .subscribe(this::findAllTestBeanResult1);
+//        mRealmTestDBInteract.findGreaterTestBeanAge(27)
+//                .subscribe(this::findAllTestBeanResult2);
     }
 
-    private void findAllTestBeanResult(RealmResults<TestDBBean> realmObjects) {
+    private void findAllTestBeanResult2(List<TestDBBean> testDBBeans) {
+        for(TestDBBean  bean : testDBBeans) {
+            MyLogger.jLog().d("findGreaterTestBeanAge  id: " + bean.getId());
+        }
+    }
+
+    private void findAllTestBeanResult1(List<TestDBBean> testDBBeans) {
+        for(TestDBBean  bean : testDBBeans) {
+            MyLogger.jLog().d("findLessTestBeanAge  id: "+bean.getId());
+        }
+
+    }
+
+    private void findAllTestBeanResult(List<TestDBBean> realmObjects) {
         findAllTestBoolean.postValue(realmObjects);
+    }
+
+    private void findAllTestBeanResult(TestDBBean realmObjects) {
+        MyLogger.jLog().d("findEqaultTestBeanId  id: "+realmObjects.getId());
     }
 
 

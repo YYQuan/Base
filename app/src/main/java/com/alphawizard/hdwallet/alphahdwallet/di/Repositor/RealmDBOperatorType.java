@@ -4,6 +4,7 @@ import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 
 import org.json.JSONArray;
 
+import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Flowable;
@@ -29,12 +30,15 @@ public interface RealmDBOperatorType {
     public Single<Boolean> insert(List<? extends RealmObject> list);
 
     /**
-     * 添加或者修改(性能优于下面的saveOrUpdate（）方法)
+     * 添加或者修改
      *
      * @param object
      * @return 保存或者修改是否成功
      */
     public Single<Boolean> insertOrUpdate(RealmObject object);
+
+
+
 
     /**
      * 添加或者修改(性能优于下面的saveOrUpdateBatch（）方法)
@@ -93,12 +97,23 @@ public interface RealmDBOperatorType {
     /**
      * 查询所有
      *
-     *  dagger  好像是不支持  泛型 注入
-     *
      * @return 返回结果集合
      */
-//    public<T   extends RealmResults<Bean> , Bean extends RealmObject  > Flowable<T> findAll(Class<Bean> clazz) ;
-     public Flowable<RealmResults<TestDBBean>> findAll(Class<TestDBBean> clazz);
+     public<T  extends  RealmObject> Single<List<T  >> findAll(Class< T > clazz);
+
+    public<T extends  RealmObject> Single<T> findEqaul(Class< T> clazz,String fieldName,String value);
+
+    public<T extends  RealmObject> Single<List<T>> findEqaul(Class< T> clazz,String fieldName,long value);
+
+    public<T extends  RealmObject> Single<List<T>> findGreater(Class< T> clazz,String fieldName,long value);
+
+    public<T extends  RealmObject> Single<List<T>> findLess(Class< T> clazz,String fieldName,long value);
+
+    public<T extends  RealmObject> Single<List<T>> findEqaul(Class< T> clazz,String fieldName,Date value);
+
+    public<T extends  RealmObject> Single<List<T>> findGreater(Class< T> clazz,String fieldName,Date value);
+
+    public<T extends  RealmObject> Single<List<T>> findLess(Class< T> clazz,String fieldName,Date value);
 
     /**
      * 清空数据库
