@@ -20,6 +20,7 @@ import com.alphawizard.hdwallet.common.util.MyLogger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -104,7 +105,40 @@ public class AccountsFragment extends Fragment {
 
         mAdapter =new WalletAdapter(R.layout.cell_accounts_list,wallets);
 
-//         下拉  刷新
+//        顶部 刷新开关
+//        这个 顶部刷新  和下拉刷新 的效果差很多 ， 要做 下拉刷新的话不能用这个来做 ，
+//        还是要通过SwipeRefreshLayout  来做
+       mAdapter.setUpFetchEnable(true);
+
+//       下拉刷新
+        mAdapter.setUpFetchListener(()->{
+            App.showToast("   up   fetch Load  more");
+            Single.timer(2, TimeUnit.SECONDS)
+                    .fromCallable(()->{
+                List<Wallet>  wallets1 =  new ArrayList<>();
+
+                for (int i = 0; i < 30; i++) {
+                    wallets1.add(new Wallet(" " + i));
+                }
+                return  wallets1;
+            })
+//            初始化  在  subsrcribe 前被调用
+                    .doOnSubscribe((params)->{
+                        MyLogger.jLog().d("网络访问  初始化");
+
+                    })
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+
+                    .subscribe((param)->{
+                        mAdapter.refreshData(param);
+//                mAdapter.loadMoreEnd();
+                        mAdapter.loadMoreComplete();
+                    });
+
+        });
+
+//         上拉  刷新
 ////            请不要  直接的在 主线中用这个来刷新 ，会 由于刷新太快 而导致出错
        mAdapter.setOnLoadMoreListener(()->{
             App.showToast("Load  more");
