@@ -105,8 +105,6 @@ dependencies {
     //导入 support中的控件以及主题
     compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
 
-
-
     // ReactiveX
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
@@ -125,21 +123,20 @@ dependencies {
     //    挺好用的  recyclerView的 adapter 的封装
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.baseRecyclerViewAdapterHelper"
 
-
-//    ARouter
+    //    ARouter
     compile "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.aRouterCompiler"
 
-//  okgo
+    //  okgo
     compile "com.lzy.net:okgo:$rootProject.ext.okgoVersion"
     compile "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
     compile "com.lzy.net:okserver:$rootProject.ext.okServer"
 
-//auto   size
+    //auto   size
     implementation "me.jessyan:autosize:$rootProject.ext.autoSIzeVersion"
 
-//event bus
+    //event bus
     compile "org.greenrobot:eventbus:$rootProject.ext.eventBus"
-
     implementation project(':common')
+    implementation project(':library')
 }

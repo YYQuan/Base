@@ -14,11 +14,14 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.TraceDelay;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.MyLogger;
+import com.hujiang.library.annotation.Async;
+
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.convert.StringConvert;
@@ -50,7 +53,8 @@ import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 
-@Route(path = "/test/activity/firstLaunch")
+@TraceDelay
+//@Route(path = "/test/activity/firstLaunch")
 public class FirstLaunchActivity extends ToolbarActivity {
 
     @BindView(R.id.btn_create_account)
@@ -81,6 +85,7 @@ public class FirstLaunchActivity extends ToolbarActivity {
             ActivityCompat.requestPermissions(this, mPermissionList, 123);
         }
     }
+
 
     @Override
     public void initWidget() {
@@ -122,9 +127,11 @@ public class FirstLaunchActivity extends ToolbarActivity {
 
                         if(stringResponse.isFromCache()) {
                             MyLogger.jLog().d("网络访问  从缓存中拿到值");
+                            onTestAspectJ("网络访问  从缓存中拿到值");
                         }else{
 
                             MyLogger.jLog().d("网络访问  拿到最新值");
+                            onTestAspectJ("网络访问  拿到最新值");
                         }
                     }
 
@@ -138,6 +145,19 @@ public class FirstLaunchActivity extends ToolbarActivity {
                         MyLogger.jLog().d("网络访问  onComplete");
                     }
                 });
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+
+    //    @Async
+   @Async
+    private  void  onTestAspectJ(String str){
+        MyLogger.jLog().d(str);
     }
 
     private void obFindAllTest(List<TestDBBean> realmObjects) {
