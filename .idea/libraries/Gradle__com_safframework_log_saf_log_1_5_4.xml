@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.safframework.log:saf-log-1.5.4">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/saf-log-1.5.4.aar/1c6969e057c1b7e0ed832fb199868b00/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/saf-log-1.5.4.aar/1c6969e057c1b7e0ed832fb199868b00/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.safframework.log/saf-log/1.5.4/7a250164dfca5f7eb57dbe6d1e8a045c7a9998c5/saf-log-1.5.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

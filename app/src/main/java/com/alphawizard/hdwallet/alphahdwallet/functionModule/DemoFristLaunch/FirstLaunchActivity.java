@@ -4,39 +4,41 @@ import android.Manifest;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.TraceDelay;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.Async;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.HookMethod;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.Permission;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.Safe;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.TraceDelay;
 import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.MyLogger;
-import com.hujiang.library.annotation.Async;
+
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.convert.StringConvert;
 import com.lzy.okgo.model.Response;
 import com.lzy.okrx2.adapter.ObservableResponse;
+import com.safframework.log.L;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 import java.util.Random;
-import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
@@ -44,18 +46,16 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.Flowable;
 import io.reactivex.Observer;
-import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import io.realm.Realm;
-import io.realm.RealmObject;
-import io.realm.RealmResults;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
 
 
-@TraceDelay
-//@Route(path = "/test/activity/firstLaunch")
-public class FirstLaunchActivity extends ToolbarActivity {
+
+@Route(path = "/test/activity/firstLaunch")
+public class FirstLaunchActivity extends ToolbarActivity  {
 
     @BindView(R.id.btn_create_account)
     Button btnCreate;
@@ -82,7 +82,7 @@ public class FirstLaunchActivity extends ToolbarActivity {
                 Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA};
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             // 走申请流程
-            ActivityCompat.requestPermissions(this, mPermissionList, 123);
+//            ActivityCompat.requestPermissions(this, mPermissionList, 123);
         }
     }
 
@@ -145,19 +145,53 @@ public class FirstLaunchActivity extends ToolbarActivity {
                         MyLogger.jLog().d("网络访问  onComplete");
                     }
                 });
+        method1();
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//    }
 
 
-    //    @Async
-   @Async
+
+//    @HookMethod(beforeMethod = "method1",afterMethod = "method2")
+//    @Async
+//    @Safe(callBack = "doCallBack")
     private  void  onTestAspectJ(String str){
+
         MyLogger.jLog().d(str);
+
+    }
+
+    private static final int RC = 0x0100;
+
+//    @Permission(value = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//            Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA},requestCode = RC)
+//    @AfterPermissionGranted(RC)
+//    当有权限时 才会执行
+    private void method1() {
+//        MyLogger.jLog().e("AfterPermissionGranted  100");
+    }
+
+
+//    @AfterPermissionGranted(RC)
+    void  requestPerm(){
+            App.showToast("callback    request perm");
+        MyLogger.jLog().e("AfterPermissionGranted  10000000");
+
+    }
+
+
+
+    private void doCallBack(boolean  isTrue) {
+        MyLogger.jLog().d("safe  doCallBack "+isTrue);
+        Toast.makeText(this, "invoke the doCallBack method", Toast.LENGTH_SHORT).show();
+    }
+
+    private void method2() {
+        MyLogger.jLog().d("method2() is called after initData()");
     }
 
     private void obFindAllTest(List<TestDBBean> realmObjects) {
@@ -214,4 +248,13 @@ public class FirstLaunchActivity extends ToolbarActivity {
         App.showToast("Event Bus  Wallet  :"+ wallet.address);
         MyLogger.jLog().d("Event Bus  Wallet  :"+ wallet.address);
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+//        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+
 }

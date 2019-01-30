@@ -28,93 +28,81 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class ActivityAspect {
 
-    @Pointcut("execution(* android.app.Activity.onCreate(..))")
-    public void onCreateCutPoint() {
-
-    }
-
-
-
-    @Pointcut("execution(* com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchActivity.onCreate(..))")
-    public void onCreateCutPoint1() {
-
-    }
-
-    @After("execution(* com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchActivity.on**(..))")
-    public void onResumeMethod1(JoinPoint joinPoint) throws Throwable {
-        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
-    }
-
-    @Pointcut("execution(* android.app.Activity.onResume())")
-    public void onResumeCutPoint() {
-
-    }
-
-    @Pointcut("execution(* android.app.Activity.onPause(..))")
-    public void onPauseCutPoint() {
-
-    }
-
-    @Pointcut("execution(* android.app.Activity.onStart(..))")
-    public void onStartCutPoint() {
-
-    }
-
-    @Pointcut("execution(* android.app.Activity.onStop(..))")
-    public void onStopCutPoint() {
-
-    }
-
-    @Pointcut("execution(* android.app.Activity.onDestroy(..))")
-    public void onDestroyCutPoint() {
-
-    }
-
-    /**
-     *
-     * @param joinPoint
-     * @throws Throwable
-     */
-    @After("within(@com.hujiang.library.aspect.TraceDelay *)")
-    public void onUi(JoinPoint joinPoint) throws Throwable {
-        Log.i("YYQ", "TraceDelay" + joinPoint.getSignature());
-    }
-
+//    @Pointcut("execution(* android.app.Activity.onCreate(..))")
+//    public void onCreateCutPoint() {
+//
+//    }
+//
+//    @Pointcut("execution(* android.app.Activity.onResume())")
+//    public void onResumeCutPoint() {
+//
+//    }
+//
+//    @Pointcut("execution(* android.app.Activity.onPause(..))")
+//    public void onPauseCutPoint() {
+//
+//    }
+//
+//    @Pointcut("execution(* android.app.Activity.onStart(..))")
+//    public void onStartCutPoint() {
+//
+//    }
+//
+//    @Pointcut("execution(* android.app.Activity.onStop(..))")
+//    public void onStopCutPoint() {
+//
+//    }
+//
+//    @Pointcut("execution(* android.app.Activity.onDestroy(..))")
+//    public void onDestroyCutPoint() {
+//
+//    }
+//
+//    /**
+//     *
+//     * @param joinPoint
+//     * @throws Throwable
+//     */
+//    @After("within(@com.hujiang.library.aspect.TraceDelay *)")
+//    public void onUi(JoinPoint joinPoint) throws Throwable {
+//        Log.i("YYQ", "TraceDelay" + joinPoint.getSignature());
+//    }
+//
     @After("execution(* android.app.Activity.on**(..))")
     public void onResumeMethod(JoinPoint joinPoint) throws Throwable {
         Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
     }
-
-    ///////////
-    @After("execution(* com.hujiang.library.demo.Greeter.**())")
-    public void greeterAdvice(JoinPoint joinPoint) throws Throwable {
-        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
-    }
-
-    @After("execution(* android.support.v4.app.Fragment.on**(..))")
-    public void fragmentMethod(JoinPoint joinPoint) throws Throwable {
-        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
-    }
-
-    @After("call(* com.hujiang.library.demo.AspectJavaDemo.work())")
-    public void aspectJavaDemoAdvice(JoinPoint joinPoint) throws Throwable {
-        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
-    }
-
-    @After("execution(* com.nostra13.universalimageloader.core.ImageLoader.displayImage(..))")
-    public void aspectImageLoader(JoinPoint joinPoint) throws Throwable {
-        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
-    }
-
-    @After("execution(* com.hujiang.library.demo.NormalClass.**(..))")
-    public void aspectNormalClass(JoinPoint joinPoint) throws Throwable {
-        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
-    }
-
-    @Around("execution( * com.hujiang.library.demo.AOPActivity.onCreate(..))")
-    public void aopActivityAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
-        joinPoint.proceed();
-
-        Log.i("YYQ", "aspect:::" + "------------>>>>>AOPActivity.onCreate");
-    }
+//
+//    ///////////
+//    @After("execution(* com.hujiang.library.demo.Greeter.**())")
+//    public void greeterAdvice(JoinPoint joinPoint) throws Throwable {
+//        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
+//    }
+//
+//    @After("execution(* android.support.v4.app.Fragment.on**(..))")
+//    public void fragmentMethod(JoinPoint joinPoint) throws Throwable {
+//        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
+//    }
+//
+//    @After("call(* com.hujiang.library.demo.AspectJavaDemo.work())")
+//    public void aspectJavaDemoAdvice(JoinPoint joinPoint) throws Throwable {
+//        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
+//    }
+//
+//    @After("execution(* com.nostra13.universalimageloader.core.ImageLoader.displayImage(..))")
+//    public void aspectImageLoader(JoinPoint joinPoint) throws Throwable {
+//        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
+//    }
+//
+//    @After("execution(* com.hujiang.library.demo.NormalClass.**(..))")
+//    public void aspectNormalClass(JoinPoint joinPoint) throws Throwable {
+//        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
+//    }
+//
+//    @Around("execution( * com.hujiang.library.demo.AOPActivity.onCreate(..))")
+//    public void aopActivityAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+//        joinPoint.proceed();
+//
+//        Log.i("YYQ", "aspect:::" + "------------>>>>>AOPActivity.onCreate");
+//    }
 }

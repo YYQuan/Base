@@ -1,4 +1,4 @@
-package com.hujiang.library.annotation;
+package com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

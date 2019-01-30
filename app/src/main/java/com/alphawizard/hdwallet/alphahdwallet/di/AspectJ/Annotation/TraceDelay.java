@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.AspectJ;
+package com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

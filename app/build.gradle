@@ -148,6 +148,17 @@ dependencies {
 
     //event bus
     compile "org.greenrobot:eventbus:$rootProject.ext.eventBus"
+
+    // 配合 aop
+    implementation "com.safframework.log:saf-log:$rootProject.ext.saf_log"
+    implementation "com.safframework:saf-cache:$rootProject.ext.saf_cache"
+    implementation "tony-common:tony-common-utils:$rootProject.ext.tony_common_utils"
+
+
+    //  google提供的简化动态获取权限的库
+    implementation "pub.devrel:easypermissions:$rootProject.ext.easyPermissionVersion"
+
+
     implementation project(':common')
-    implementation project(':library')
+    implementation project(':aop_lib')
 }

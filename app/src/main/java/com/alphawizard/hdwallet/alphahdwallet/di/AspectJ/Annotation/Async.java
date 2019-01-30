@@ -1,12 +1,9 @@
-package com.hujiang.library.annotation;
+package com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.RetentionPolicy.CLASS;
 
 /**
  * Created by Tony Shen on 16/3/23.
