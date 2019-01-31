@@ -17,8 +17,12 @@ import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.AccountFragment;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.AccountsFragment;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.DimensionFragment;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.LaunchPresenter;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.PersenterInterface;
+import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.Presenter;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.Helper.NavHelper;
+import com.alphawizard.hdwallet.common.util.MyLogger;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -34,6 +38,16 @@ public class WalletActivity extends ToolbarActivity implements
     @Inject
     WalletsViewModuleFactory viewModuleFactory;
     WalletViewModule viewModel;
+
+    @Inject
+    AccountFragment  accountFragment;
+
+//    @Inject
+    LaunchPresenter  launchPresenter;
+
+    @Inject
+    PersenterInterface Presenter;
+
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
@@ -61,6 +75,17 @@ public class WalletActivity extends ToolbarActivity implements
                 .get(WalletViewModule.class);
 //        viewModel.createdWallet().observe(this,this::onCreatedWallet);
 
+        if(accountFragment!=null){
+            MyLogger.jLog().d("accountFragment!=null");
+        }else{
+            MyLogger.jLog().d("accountFragment==null");
+        }
+
+        if(Presenter!=null){
+            MyLogger.jLog().d("Presenter!=null");
+        }else{
+            MyLogger.jLog().d("Presenter==null");
+        }
     }
 
     @Override

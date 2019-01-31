@@ -24,8 +24,8 @@ public class SupportModule {
 
 	@Singleton
 	@Provides
-	PreferenceRepositoryType providePreferenceRepository(Context context) {
-		return new SharedPreferenceRepository(context);
+	PreferenceRepositoryType providePreferenceRepository() {
+		return  SharedPreferenceRepository.getInstance();
 	}
 
 	@Singleton
@@ -37,7 +37,7 @@ public class SupportModule {
 	@Singleton
 	@Provides
 	RealmDBOperatorType provideRealmDBOperatorType() {
-		return new RealmDBOperator();
+		return  RealmDBOperator.getInstance();
 	}
 
 

@@ -4,6 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.alphawizard.hdwallet.alphahdwallet.App;
+import com.alphawizard.hdwallet.common.util.MyLogger;
+
+import javax.inject.Inject;
+
+import dagger.android.DaggerApplication;
 import io.reactivex.Single;
 
 
@@ -15,10 +21,25 @@ public class SharedPreferenceRepository implements PreferenceRepositoryType {
     private static final String GAS_LIMIT_KEY  ="gas_limit";
 	private static final String GAS_LIMIT_FOR_TOKENS_KEY = "gas_limit_for_tokens";
 
-	private final SharedPreferences pref;
+	private static  SharedPreferences pref;
+	private static  SharedPreferenceRepository instance;
 
-	public SharedPreferenceRepository(Context context) {
+
+
+	private  SharedPreferenceRepository(Context context) {
 		pref = PreferenceManager.getDefaultSharedPreferences(context);
+	}
+
+	public  static  SharedPreferenceRepository   getInstance(){
+		if (instance == null) {
+			synchronized (SharedPreferenceRepository.class) {
+				if (instance == null) {
+					System.out.println("i m in new instance!");
+					instance =  new SharedPreferenceRepository(App.getInstance());
+				}
+			}
+		}
+		return  instance;
 	}
 
 	@Override

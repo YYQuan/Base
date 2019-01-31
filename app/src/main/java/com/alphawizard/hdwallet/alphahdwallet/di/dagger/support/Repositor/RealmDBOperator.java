@@ -1,5 +1,10 @@
 package com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
+
+import com.alphawizard.hdwallet.alphahdwallet.App;
+
 import org.json.JSONArray;
 
 import java.util.Date;
@@ -28,6 +33,21 @@ public class RealmDBOperator implements RealmDBOperatorType {
 //
 //    }
 
+    private static  RealmDBOperator instance;
+
+    private  RealmDBOperator() {
+    }
+
+    public  static  RealmDBOperator   getInstance(){
+        if (instance == null) {
+            synchronized (SharedPreferenceRepository.class) {
+                if (instance == null) {
+                    instance =  new RealmDBOperator();
+                }
+            }
+        }
+        return  instance;
+    }
 
 
 

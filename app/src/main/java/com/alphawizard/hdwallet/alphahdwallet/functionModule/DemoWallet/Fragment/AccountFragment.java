@@ -1,6 +1,7 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.NonNull;
 import android.widget.Button;
@@ -19,15 +20,22 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import dagger.Provides;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 
 public class AccountFragment extends Fragment {
 
 
+    @Inject
+    public AccountFragment() {
+    }
 
     @Inject
     WalletsViewModuleFactory viewModuleFactory;
     WalletViewModule viewModel;
+
+
+
 
     @BindView(R.id.tv_balances)
     TextView mBalance;
