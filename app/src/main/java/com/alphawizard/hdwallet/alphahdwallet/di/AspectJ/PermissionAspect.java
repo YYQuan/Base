@@ -182,13 +182,12 @@ public class PermissionAspect {
 
 
 //     给onRequestPermissionsResult 方法 加入  easy permission 的  Forward results to EasyPermissions
-//    @After("execution(* android.app.Activity.onRequestPermissionsResult(..))")
+//  匹配  activity 和 fragment 的 onRequestPermissionsResult
     @After("execution(* *.onRequestPermissionsResult(*,*,*))")
     public void onResumeMethod(JoinPoint joinPoint) throws Throwable {
         MyLogger.jLog().d("permissionOnRequestPermissionsResult");
 
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-        Method method = signature.getMethod();
+
 
 //        onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
 

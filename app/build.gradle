@@ -96,25 +96,25 @@ dependencies {
 
     // Dagger dependencies
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
-    compile "com.google.dagger:dagger:$rootProject.daggerVersion"
-    compile "com.google.dagger:dagger-android:$rootProject.daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
 
     //qiujuer tools
-    compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
-    compile "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
-    compile "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
+    implementation "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
+    implementation "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
+    implementation "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
 
     //用来做底部面板
-    compile "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
+    implementation "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
 
     //    butter knife
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
     //导入 support中的控件以及主题
-    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
 
     // ReactiveX
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
@@ -135,19 +135,19 @@ dependencies {
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.baseRecyclerViewAdapterHelper"
 
     //    ARouter
-    compile "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
+    implementation "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.aRouterCompiler"
 
     //  okgo
-    compile "com.lzy.net:okgo:$rootProject.ext.okgoVersion"
-    compile "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
-    compile "com.lzy.net:okserver:$rootProject.ext.okServer"
+    implementation "com.lzy.net:okgo:$rootProject.ext.okgoVersion"
+    implementation "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
+    implementation "com.lzy.net:okserver:$rootProject.ext.okServer"
 
     //auto   size
     implementation "me.jessyan:autosize:$rootProject.ext.autoSIzeVersion"
 
     //event bus
-    compile "org.greenrobot:eventbus:$rootProject.ext.eventBus"
+    implementation "org.greenrobot:eventbus:$rootProject.ext.eventBus"
 
     // 配合 aop
     implementation "com.safframework.log:saf-log:$rootProject.ext.saf_log"

@@ -1,16 +1,12 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.Repositor;
-
-import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor;
 
 import org.json.JSONArray;
 
 import java.util.Date;
 import java.util.List;
 
-import io.reactivex.Flowable;
 import io.reactivex.Single;
 import io.realm.RealmObject;
-import io.realm.RealmResults;
 
 public interface RealmDBOperatorType {
     /**

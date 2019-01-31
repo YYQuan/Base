@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.service;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.service;
 
 
 

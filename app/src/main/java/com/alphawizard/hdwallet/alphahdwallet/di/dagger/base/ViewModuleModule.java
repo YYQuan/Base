@@ -1,13 +1,13 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.base;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.base;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.FirstLaunchViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.FirstLaunchViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.WalletsViewModuleFactory;
 
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.RealmTestDBInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.RealmTestDBInteract;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.DefaultWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.CreateWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.DefaultWalletInteract;
 
 import dagger.Module;
 import dagger.Provides;

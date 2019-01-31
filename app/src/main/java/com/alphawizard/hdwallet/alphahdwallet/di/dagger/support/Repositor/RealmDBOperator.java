@@ -1,25 +1,15 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.Repositor;
-
-import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.Date;
 import java.util.List;
 
-import io.reactivex.Flowable;
-import io.reactivex.Observable;
-import io.reactivex.Scheduler;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
-import io.realm.Sort;
 
 /**
  *  注意  realm  只能在 创建的线程当中  操作

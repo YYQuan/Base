@@ -1,8 +1,9 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.base;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.base;
 
 
 
-import com.alphawizard.hdwallet.alphahdwallet.di.base.Scope.ActivityScoped;
+
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.base.Scope.ActivityScoped;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletActivity;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletModule;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchActivity;

@@ -1,8 +1,8 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.base;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.base;
 
 import com.alphawizard.hdwallet.alphahdwallet.App;
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.diModule.InteractModule;
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.diModule.RouterModule;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.diModule.InteractModule;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.diModule.RouterModule;
 
 
 import javax.inject.Singleton;
@@ -52,7 +52,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
          * 提供  repositoriesModule  &  service
          * 这里是真正提供  功能的地方
          */
-        RepositoriesModule.class,
+        SupportModule.class,
         /**
          *  提供各个 Activity 所需的  ViewModule的Factory
          *  每一个activity  所需的功能组件 都是由 一个个的  InteractModule  来完成的

@@ -1,6 +1,6 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.base.Scope;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.base.Scope;
 
-import com.alphawizard.hdwallet.alphahdwallet.di.base.AppComponent;
+
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

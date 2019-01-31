@@ -1,6 +1,6 @@
 package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet;
 
-import com.alphawizard.hdwallet.alphahdwallet.di.base.Scope.ActivityScoped;
+
 import com.alphawizard.hdwallet.alphahdwallet.di.base.Scope.FragmentScoped;
 
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragment.AccountFragment;

@@ -84,20 +84,20 @@ dependencies {
 
 
     //    ARouter
-    compile "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
+    implementation "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.aRouterCompiler"
 
     // 管理  bar  的辅助类
-    compile "com.gyf.barlibrary:barlibrary:$rootProject.ext.barLibrary"
+    implementation "com.gyf.barlibrary:barlibrary:$rootProject.ext.barLibrary"
 
 //  okgo
 
-    compile "com.lzy.net:okgo:$rootProject.ext.okgoVersion"
-    compile "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
-    compile "com.lzy.net:okserver:$rootProject.ext.okServer"
+    implementation "com.lzy.net:okgo:$rootProject.ext.okgoVersion"
+    implementation "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
+    implementation "com.lzy.net:okserver:$rootProject.ext.okServer"
 
 //  event  bus
-    compile "org.greenrobot:eventbus:$rootProject.ext.eventBus"
+    implementation "org.greenrobot:eventbus:$rootProject.ext.eventBus"
 
 
     implementation project(':lang')

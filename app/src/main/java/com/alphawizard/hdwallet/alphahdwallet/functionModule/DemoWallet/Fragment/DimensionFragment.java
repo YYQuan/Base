@@ -3,7 +3,7 @@ package com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.Fragmen
 import android.arch.lifecycle.ViewModelProviders;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
-import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.WalletsViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletViewModule;
 import com.alphawizard.hdwallet.common.base.App.Fragment;
 

@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.base;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.base;
 
 
 import android.content.Context;

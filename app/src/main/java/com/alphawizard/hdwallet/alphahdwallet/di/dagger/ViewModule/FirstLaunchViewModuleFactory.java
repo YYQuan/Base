@@ -1,13 +1,13 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.ViewModule;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.RealmTestDBInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.RealmTestDBInteract;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoFristLaunch.FirstLaunchViewModule;
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.CreateWalletInteract;
 
 public class FirstLaunchViewModuleFactory  implements ViewModelProvider.Factory{
 

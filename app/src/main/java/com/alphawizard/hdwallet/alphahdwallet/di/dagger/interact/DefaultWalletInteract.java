@@ -1,7 +1,7 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.interact;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact;
 
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
-import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.PreferenceRepositoryType;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.PreferenceRepositoryType;
 
 import io.reactivex.Completable;
 import io.reactivex.Single;

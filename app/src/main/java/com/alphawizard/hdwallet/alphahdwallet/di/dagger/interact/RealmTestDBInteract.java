@@ -1,16 +1,12 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.interact;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.di.Repositor.RealmDBOperatorType;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.RealmDBOperatorType;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
-import com.alphawizard.hdwallet.alphahdwallet.service.DemoServiceInterface;
 
 import java.util.List;
 
-import io.reactivex.Flowable;
 import io.reactivex.Single;
-import io.realm.RealmObject;
-import io.realm.RealmResults;
 
 /**
  *  在这一级  对  操作的db  bean  进行分类

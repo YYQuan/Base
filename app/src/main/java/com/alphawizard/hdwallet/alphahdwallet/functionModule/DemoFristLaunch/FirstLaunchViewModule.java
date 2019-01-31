@@ -5,11 +5,11 @@ import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
 
 
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.RealmTestDBInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.RealmTestDBInteract;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletRouter;
-import com.alphawizard.hdwallet.alphahdwallet.di.interact.CreateWalletInteract;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.interact.CreateWalletInteract;
 import com.alphawizard.hdwallet.common.base.ViewModule.BaseViewModel;
 import com.alphawizard.hdwallet.common.util.MyLogger;
 
@@ -17,8 +17,6 @@ import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import io.realm.RealmObject;
-import io.realm.RealmResults;
 
 public class FirstLaunchViewModule extends BaseViewModel {
 

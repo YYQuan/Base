@@ -7,11 +7,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alphawizard.hdwallet.alphahdwallet.R;
-import com.alphawizard.hdwallet.alphahdwallet.di.ViewModule.WalletsViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.WalletsViewModuleFactory;
 
 
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;

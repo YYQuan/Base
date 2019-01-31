@@ -1,4 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.Repositor;
+package com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor;
 
 
 import io.reactivex.Single;
