@@ -167,7 +167,7 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //    @AfterPermissionGranted(RC)
 //    当有权限时 才会执行
 
-    @RealmsInsert()
+//    @RealmsInsert()
     private List<TestDBBean> method1() {
         MyLogger.jLog().e("  PrefsInsert  ");
         List<TestDBBean>  beans= new ArrayList<>();
