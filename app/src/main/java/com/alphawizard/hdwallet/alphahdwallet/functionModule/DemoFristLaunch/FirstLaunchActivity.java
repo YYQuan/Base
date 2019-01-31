@@ -13,7 +13,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.Prefs;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.FirstLaunchViewModuleFactory;
+import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.SharedPreferenceRepository;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
@@ -136,6 +138,8 @@ public class FirstLaunchActivity extends ToolbarActivity  {
                     }
                 });
         method1();
+//
+
     }
 
 
@@ -161,8 +165,11 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //            Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA},requestCode = RC)
 //    @AfterPermissionGranted(RC)
 //    当有权限时 才会执行
-    private void method1() {
-//        MyLogger.jLog().e("AfterPermissionGranted  100");
+
+    @Prefs(key = SharedPreferenceRepository.CURRENT_ACCOUNT_ADDRESS_KEY)
+    private String method1() {
+        MyLogger.jLog().e("  Prefs  ");
+        return  "hello  world111";
     }
 
 
@@ -203,6 +210,7 @@ public class FirstLaunchActivity extends ToolbarActivity  {
     @OnClick(R.id.btn_create_account)
     void onClickBtnCreate(){
         viewModel.createNewWallet();
+
 //        viewModel.openWallet(this);
 //        viewModel.findAllTestBean();
     }
