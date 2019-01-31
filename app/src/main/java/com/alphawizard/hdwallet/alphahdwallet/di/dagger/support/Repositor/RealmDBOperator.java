@@ -22,17 +22,6 @@ import io.realm.RealmResults;
 public class RealmDBOperator implements RealmDBOperatorType {
 
 
-//    private Realm   realm = getDefaultInstance();
-//
-//
-//    public  Realm  getDefaultInstance(){
-//        if(realm ==null){
-//            realm = Realm.getDefaultInstance();
-//        }
-//        return  realm;
-//
-//    }
-
     private static  RealmDBOperator instance;
 
     private  RealmDBOperator() {
@@ -75,7 +64,7 @@ public class RealmDBOperator implements RealmDBOperatorType {
                 realm.close();
             }
             return  true;
-        });
+        }).subscribeOn(Schedulers.io());
     }
 
     /**

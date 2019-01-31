@@ -16,7 +16,10 @@ import static java.lang.annotation.ElementType.METHOD;
 @TargetApi(14)
 @Target({METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Prefs {
+public @interface RealmsInsert {
 
-    String key();
+
+//    用于判断  是插入还是更新    这个关乎插入性能
+//      默认为true  true的话 无论是插入还是更新都OK
+    boolean isUpdate() default  false ;
 }

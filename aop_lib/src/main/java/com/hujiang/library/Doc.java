@@ -1,7 +1,11 @@
 package com.hujiang.library;
 
 /**
- *       该 lib  用于支持 aop    勿删
+ *
+ *
+ *      该 lib  用于支持 aop    勿删
+ *
+ *      每次增加新的注解时  要 clean  project 下
  *
  *     @Aspect：声明切面，标记类
  *     @Pointcut(切点表达式)：定义切点，标记方法

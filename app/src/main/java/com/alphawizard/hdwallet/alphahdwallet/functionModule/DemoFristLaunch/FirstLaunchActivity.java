@@ -13,7 +13,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.Prefs;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.PrefsInsert;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInsert;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.SharedPreferenceRepository;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
@@ -166,10 +167,16 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //    @AfterPermissionGranted(RC)
 //    当有权限时 才会执行
 
-    @Prefs(key = SharedPreferenceRepository.CURRENT_ACCOUNT_ADDRESS_KEY)
-    private String method1() {
-        MyLogger.jLog().e("  Prefs  ");
-        return  "hello  world111";
+    @RealmsInsert()
+    private List<TestDBBean> method1() {
+        MyLogger.jLog().e("  PrefsInsert  ");
+        List<TestDBBean>  beans= new ArrayList<>();
+
+        for(int  i =0  ;i<10;i++){
+            beans.add(new TestDBBean("id"+i,"name "+i,i));
+
+        }
+        return  beans;
     }
 
 
@@ -212,20 +219,21 @@ public class FirstLaunchActivity extends ToolbarActivity  {
         viewModel.createNewWallet();
 
 //        viewModel.openWallet(this);
-//        viewModel.findAllTestBean();
+
     }
 
     @OnClick(R.id.btn_import_account)
     void onClickBtnImport(){
-        List  list =  new ArrayList();
-        Random random = new Random();
-        int number = random.nextInt(50);
-        for(int i = 0  ; i<5;i++) {
-            number  += i;
-            TestDBBean bean =new TestDBBean("" + number, "name_" + number, number);
-            list.add(bean);
-        }
-        viewModel.addTestBeans(list);
+        viewModel.findAllTestBean();
+//        List  list =  new ArrayList();
+//        Random random = new Random();
+//        int number = random.nextInt(50);
+//        for(int i = 0  ; i<5;i++) {
+//            number  += i;
+//            TestDBBean bean =new TestDBBean("" + number, "name_" + number, number);
+//            list.add(bean);
+//        }
+//        viewModel.addTestBeans(list);
     }
 
 

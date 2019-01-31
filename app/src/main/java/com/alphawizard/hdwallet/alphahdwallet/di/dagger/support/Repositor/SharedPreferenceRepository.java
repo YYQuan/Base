@@ -47,7 +47,7 @@ public class SharedPreferenceRepository implements PreferenceRepositoryType {
 
 	@Async
 	public void putString(String  key,String value) {
-		MyLogger.jLog().e("  Prefs  putString");
+		MyLogger.jLog().e("  PrefsInsert  putString");
 		 pref.edit().putString(key, value).apply();
 	}
 

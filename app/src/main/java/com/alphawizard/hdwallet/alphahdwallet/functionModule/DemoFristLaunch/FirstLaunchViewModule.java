@@ -36,7 +36,7 @@ public class FirstLaunchViewModule extends BaseViewModel {
 
     private final MutableLiveData<Wallet> createdWallet = new MutableLiveData<>();
     private final MutableLiveData<Boolean> addTestBoolean = new MutableLiveData<>();
-    private final MutableLiveData<List<TestDBBean>> findAllTestBoolean = new MutableLiveData<>();
+    private final MutableLiveData<List<TestDBBean>> findAllTest = new MutableLiveData<>();
 
     public LiveData<Wallet> observeCreatedWallet() {
         return createdWallet;
@@ -45,7 +45,7 @@ public class FirstLaunchViewModule extends BaseViewModel {
         return addTestBoolean;
     }
     public LiveData<List<TestDBBean>> observeFindAllTestBoolean() {
-        return findAllTestBoolean;
+        return findAllTest;
     }
 
 
@@ -113,7 +113,7 @@ public class FirstLaunchViewModule extends BaseViewModel {
     }
 
     private void findAllTestBeanResult(List<TestDBBean> realmObjects) {
-        findAllTestBoolean.postValue(realmObjects);
+        findAllTest.postValue(realmObjects);
     }
 
     private void findAllTestBeanResult(TestDBBean realmObjects) {
