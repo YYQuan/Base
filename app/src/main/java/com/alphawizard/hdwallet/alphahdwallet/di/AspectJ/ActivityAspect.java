@@ -68,10 +68,10 @@ public class ActivityAspect {
 //        Log.i("YYQ", "TraceDelay" + joinPoint.getSignature());
 //    }
 //
-    @After("execution(* android.app.Activity.on**(..))")
-    public void onResumeMethod(JoinPoint joinPoint) throws Throwable {
-        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
-    }
+//    @After("execution(* android.app.Activity.on**(..))")
+//    public void onResumeMethod(JoinPoint joinPoint) throws Throwable {
+//        Log.i("YYQ", "aspect:::" + joinPoint.getSignature());
+//    }
 //
 //    ///////////
 //    @After("execution(* com.hujiang.library.demo.Greeter.**())")

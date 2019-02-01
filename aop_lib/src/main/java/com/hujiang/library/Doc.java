@@ -36,6 +36,8 @@ package com.hujiang.library;
  *          这时候 以  activity的onResume作为切点，   A  的  onresume 会被作为切点， 而 B 的onresume 不会被当做切点的
  *
  *
+ *     do not    has   same   method name     expect   under @Pointcut  or  @Around
+ *
  */
 public interface Doc {
 

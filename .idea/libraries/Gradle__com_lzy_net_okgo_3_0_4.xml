@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.lzy.net:okgo-3.0.4">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/okgo-3.0.4.aar/31bb5c00b732b9f0773267cbd4bcffdd/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/okgo-3.0.4.aar/31bb5c00b732b9f0773267cbd4bcffdd/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/okgo-3.0.4.aar/a014f5e4aff7b18beff5218829e87fee/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/okgo-3.0.4.aar/a014f5e4aff7b18beff5218829e87fee/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

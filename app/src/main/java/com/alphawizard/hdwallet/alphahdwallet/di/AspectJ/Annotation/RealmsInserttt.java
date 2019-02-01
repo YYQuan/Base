@@ -13,13 +13,11 @@ import static java.lang.annotation.ElementType.METHOD;
  *
  *  该 注解用于  把返回值保存到  share Perference
  */
-@TargetApi(14)
+//@TargetApi(14)
 @Target({METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RealmsInsert {
-
-
+public @interface RealmsInserttt {
 //    用于判断  是插入还是更新    这个关乎插入性能
 //      默认为true  true的话 无论是插入还是更新都OK
-    boolean isUpdate() default  false ;
+//    boolean isUpdate() default  false ;
 }

@@ -5,18 +5,18 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.PrefsInsert;
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInsert;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.FirstLaunchViewModuleFactory;
-import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.SharedPreferenceRepository;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
 import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
@@ -32,9 +32,7 @@ import com.lzy.okrx2.adapter.ObservableResponse;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import javax.inject.Inject;
 
@@ -167,16 +165,17 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //    @AfterPermissionGranted(RC)
 //    当有权限时 才会执行
 
-//    @RealmsInsert()
-    private List<TestDBBean> method1() {
+    @RealmsInserttt()
+    private String method1() {
         MyLogger.jLog().e("  PrefsInsert  ");
-        List<TestDBBean>  beans= new ArrayList<>();
-
-        for(int  i =0  ;i<10;i++){
-            beans.add(new TestDBBean("id"+i,"name "+i,i));
-
-        }
-        return  beans;
+//        List<TestDBBean>  beans= new ArrayList<>();
+//
+//        for(int  i =0  ;i<10;i++){
+//            beans.add(new TestDBBean("id"+i,"name "+i,i));
+//
+//        }
+        return  "123";
+//        return  new TestDBBean("id"+1,"name "+1,1);
     }
 
 
@@ -214,15 +213,24 @@ public class FirstLaunchActivity extends ToolbarActivity  {
         super.onCreate(savedInstanceState);
     }
 
-    @OnClick(R.id.btn_create_account)
-    void onClickBtnCreate(){
-        viewModel.createNewWallet();
+    @OnClick({R.id.btn_create_account,R.id.btn_import_account})
+    void onClickBtnCreate(View view ){
+       switch (view.getId()){
+           case  R.id.btn_create_account:
+               viewModel.createNewWallet();
+               break;
+           case R.id.btn_import_account:
+               viewModel.findAllTestBean();
+               break;
+           default:
+               break;
+       }
 
 //        viewModel.openWallet(this);
 
     }
 
-    @OnClick(R.id.btn_import_account)
+//    @OnClick(R.id.btn_import_account)
     void onClickBtnImport(){
         viewModel.findAllTestBean();
 //        List  list =  new ArrayList();
