@@ -31,6 +31,8 @@ public class RealmInsertAspecttttt {
     @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt)||@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt)")
 
     public void onRealmsInsertMethod() {
+
+
     }
 
     private Object realmsMethod(final ProceedingJoinPoint joinPoint) throws Throwable {
