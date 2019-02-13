@@ -15,7 +15,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DbAddInsert;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.StopDoubleClick;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
@@ -32,7 +33,6 @@ import com.lzy.okrx2.adapter.ObservableResponse;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -168,7 +168,7 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //    当有权限时 才会执行
 //    @RealmsInsert
 //    @AsyncTest
-    @DBAddInsert
+    @DbAddInsert
     private List method1() {
         MyLogger.jLog().e("  PrefsInsert  ");
 //        List<TestDBBean>  beans= new ArrayList<>();
@@ -182,6 +182,7 @@ public class FirstLaunchActivity extends ToolbarActivity  {
         list.add(new TestDBBean("id"+133,"name "+10,133));
         list.add(new TestDBBean("id"+144,"name "+10,144));
         list.add(new TestDBBean("id"+14444,"name "+14444,144));
+        list.add(new TestDBBean("id"+15,"name "+15,15));
         return list;
 //        return  new TestDBBean("id"+11,"name "+11,11);
     }
@@ -221,6 +222,8 @@ public class FirstLaunchActivity extends ToolbarActivity  {
         super.onCreate(savedInstanceState);
     }
 
+
+    @StopDoubleClick
     @OnClick({R.id.btn_create_account,R.id.btn_import_account})
     void onClickBtnCreate(View view ){
        switch (view.getId()){
@@ -259,11 +262,7 @@ public class FirstLaunchActivity extends ToolbarActivity  {
     }
 
 
-//    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN, priority = 300)
-//    public void eventBusTest(String  str) {
-//        App.showToast("Event Bus  test  :"+ str);
-//        MyLogger.jLog().d("Event Bus  test  :"+ str);
-//    }
+
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN, priority = 300)
     public void eventBusWallet(Wallet  wallet) {
@@ -274,8 +273,6 @@ public class FirstLaunchActivity extends ToolbarActivity  {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-//        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
 

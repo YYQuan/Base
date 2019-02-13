@@ -1,10 +1,8 @@
 package com.alphawizard.hdwallet.alphahdwallet.di.AspectJ;
 
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DbAddInsert;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.RealmDBOperator;
-import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.SharedPreferenceRepository;
 import com.alphawizard.hdwallet.common.util.MyLogger;
-import com.hujiang.library.annotation.RealmsInsert;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -21,7 +19,7 @@ import io.realm.RealmObject;
  * Created by Tony Shen on 16/3/28.
  */
 @Aspect
-public class DBAddInsertAspect {
+public class DbAddInsertAspect {
 
 
     @Around("execution(!synthetic * *(..)) && onDBAddInsertMethod()")
@@ -30,8 +28,8 @@ public class DBAddInsertAspect {
     }
 
 
-    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert)||" +
-            "@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert)")
+    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DbAddInsert)||" +
+            "@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DbAddInsert)")
     public void onDBAddInsertMethod() {
 
 
@@ -43,7 +41,7 @@ public class DBAddInsertAspect {
         MyLogger.jLog().e(" realmsMethod  ");
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        DBAddInsert daAddInsert = method.getAnnotation(DBAddInsert.class);
+        DbAddInsert daAddInsert = method.getAnnotation(DbAddInsert.class);
 //        RealmsInsert prefsInsert = method.getAnnotation(RealmsInsert.class);
         Object result = null;
         if (daAddInsert !=null) {

@@ -28,8 +28,8 @@ package com.hujiang.library;
  *
  *        @Pointcut("execution(@com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.Async/注解/ * /返回类型/ *(..) /函数名称以及参数类型/)")
  *
- *
- *     还有一点要注意
+ *特别注意：
+ *     1.
  *          aop 不能以没有写出来的代码 作为切点
  *
  *          比如说  有两个 activity  A ，B    A重写的  onResume 方法  ，哪怕只是  super.onresume ，  B 没有重写
@@ -37,6 +37,12 @@ package com.hujiang.library;
  *
  *
  *     do not    has   same   method name     expect   under @Pointcut  or  @Around
+ *
+ *     2.
+ *          注解  接口  不要有  realm 字样 ，  否则会爆 no static  method  aspectOf
+ *     原因是因为  gradle 的配置当中把realm  字样的过滤了。  如果不过滤的话， 有报错，  暂时不知道为什么 ，  就先这样操作
+ *     3.
+ *          注解的相关方法不要重名
  *
  */
 public interface Doc {

@@ -89,14 +89,6 @@ public class FirstLaunchViewModule extends BaseViewModel {
     public void  findAllTestBean(){
         mRealmTestDBInteract.findAllTestBean()
                 .subscribe(this::findAllTestBeanResult,this::onError);
-//        mRealmTestDBInteract.findEqaultTestBeanId("21")
-//                .subscribe(this::findAllTestBeanResult);
-//        mRealmTestDBInteract.findEqaultTestBeanAge(49)
-//                .subscribe(this::findAllTestBeanResult);
-//        mRealmTestDBInteract.findLessTestBeanAge(27)
-//                .subscribe(this::findAllTestBeanResult1);
-//        mRealmTestDBInteract.findGreaterTestBeanAge(27)
-//                .subscribe(this::findAllTestBeanResult2);
     }
 
     private void findAllTestBeanResult2(List<TestDBBean> testDBBeans) {
