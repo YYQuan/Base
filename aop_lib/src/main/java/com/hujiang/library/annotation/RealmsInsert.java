@@ -1,6 +1,4 @@
-package com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation;
-
-import android.annotation.TargetApi;
+package com.hujiang.library.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -16,7 +14,7 @@ import static java.lang.annotation.ElementType.METHOD;
 //@TargetApi(14)
 @Target({METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RealmsInserttt {
+public @interface RealmsInsert {
 //    用于判断  是插入还是更新    这个关乎插入性能
 //      默认为true  true的话 无论是插入还是更新都OK
 //    boolean isUpdate() default  false ;

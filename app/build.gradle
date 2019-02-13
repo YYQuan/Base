@@ -65,10 +65,12 @@ android {
     }
 }
 
+
 aspectjx {
+//    exclude 'com.firefly1126.permissionaspect/permissionaspect'
 //    includeJarFilter  'DaggerBase/library','AspectJ'
 //排除所有package路径中包含`android.support`的class文件及库（jar文件）
-
+//    exclude 'com.alphawizard.hdwallet.alphahdwallet' // 这儿添加上你写aop代码所在的包名
     exclude 'android.support'
     exclude 'Realm'
     exclude  'realm'

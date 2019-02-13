@@ -22,7 +22,8 @@ public class PrefsInsertAspect {
         return prefsMethod(joinPoint);
     }
 
-    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.PrefsInsert)||@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.PrefsInsert)")
+    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.PrefsInsert)||" +
+            "@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.PrefsInsert)")
     public void onPrefsMethod() {
     }
 

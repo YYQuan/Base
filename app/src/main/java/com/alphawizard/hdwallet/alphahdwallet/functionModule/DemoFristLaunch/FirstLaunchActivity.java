@@ -15,7 +15,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.AsyncTest;
+import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.entity.db.TestDBBean;
@@ -23,6 +24,7 @@ import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.MyLogger;
 
 
+import com.hujiang.library.annotation.RealmsInsert;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.convert.StringConvert;
@@ -164,9 +166,10 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //            Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA},requestCode = RC)
 //    @AfterPermissionGranted(RC)
 //    当有权限时 才会执行
-
-    @RealmsInserttt()
-    private String method1() {
+//    @RealmsInsert
+//    @AsyncTest
+    @DBAddInsert
+    private  TestDBBean  method1() {
         MyLogger.jLog().e("  PrefsInsert  ");
 //        List<TestDBBean>  beans= new ArrayList<>();
 //
@@ -174,8 +177,8 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //            beans.add(new TestDBBean("id"+i,"name "+i,i));
 //
 //        }
-        return  "123";
-//        return  new TestDBBean("id"+1,"name "+1,1);
+//        return  "123";
+        return  new TestDBBean("id"+1,"name "+1,1);
     }
 
 

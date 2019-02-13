@@ -1,8 +1,8 @@
 package com.alphawizard.hdwallet.alphahdwallet.di.AspectJ;
 
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt;
-import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.RealmDBOperator;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.support.Repositor.SharedPreferenceRepository;
+import com.alphawizard.hdwallet.common.util.MyLogger;
+import com.hujiang.library.annotation.RealmsInsert;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -12,24 +12,22 @@ import org.aspectj.lang.reflect.MethodSignature;
 
 import java.lang.reflect.Method;
 
-import io.realm.RealmObject;
-
 /**
  * Created by Tony Shen on 16/3/28.
  */
 @Aspect
-public class RealmInsertAspecttttt {
-    private static final String POINTCUT_METHOD = "execution(@com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt * *(..))";
+public class RealmInsertAspect {
+    private static final String POINTCUT_METHOD = "execution(@com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInsert * *(..))";
 
     @Around("execution(!synthetic * *(..)) && onRealmsInsertMethod()")
-    public void doRealmsInsertMethod(final ProceedingJoinPoint joinPoint) throws Throwable {
-          realmsMethod(joinPoint);
+    public Object doRealmsInsertMethod(final ProceedingJoinPoint joinPoint) throws Throwable {
+          return realmsMethod(joinPoint);
     }
 
-//    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt)|| " +
-//    @Pointcut("@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt)")
-    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt)||@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInserttt)")
-
+//    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInsert)|| " +
+    @Pointcut("@annotation(com.hujiang.library.annotation.RealmsInsert)")
+//    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInsert)||" +
+//            "@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInsert)")
     public void onRealmsInsertMethod() {
 
 
@@ -37,10 +35,11 @@ public class RealmInsertAspecttttt {
 
     private Object realmsMethod(final ProceedingJoinPoint joinPoint) throws Throwable {
 
+        MyLogger.jLog().d("  realmsMethod ");
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
 
-        RealmsInserttt prefsInsert = method.getAnnotation(RealmsInserttt.class);
+        RealmsInsert prefsInsert = method.getAnnotation(RealmsInsert.class);
         Object result = null;
         if (prefsInsert !=null) {
             String key = SharedPreferenceRepository.GAS_LIMIT_KEY;
@@ -77,7 +76,7 @@ public class RealmInsertAspecttttt {
 //        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 //        Method method = signature.getMethod();
 //
-//        RealmsInserttt prefsInsert = method.getAnnotation(RealmsInserttt.class);
+//        RealmsInsert prefsInsert = method.getAnnotation(RealmsInsert.class);
 //        Object result = null;
 //        if (prefsInsert !=null) {
 //
