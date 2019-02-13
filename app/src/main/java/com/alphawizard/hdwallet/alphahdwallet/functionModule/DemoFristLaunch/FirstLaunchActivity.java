@@ -15,7 +15,6 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alphawizard.hdwallet.alphahdwallet.App;
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.constant.URLConstant;
-import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.AsyncTest;
 import com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert;
 import com.alphawizard.hdwallet.alphahdwallet.di.dagger.ViewModule.FirstLaunchViewModuleFactory;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
@@ -24,7 +23,6 @@ import com.alphawizard.hdwallet.common.base.App.ToolbarActivity;
 import com.alphawizard.hdwallet.common.util.MyLogger;
 
 
-import com.hujiang.library.annotation.RealmsInsert;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.convert.StringConvert;
@@ -34,6 +32,8 @@ import com.lzy.okrx2.adapter.ObservableResponse;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -169,7 +169,7 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //    @RealmsInsert
 //    @AsyncTest
     @DBAddInsert
-    private  TestDBBean  method1() {
+    private List method1() {
         MyLogger.jLog().e("  PrefsInsert  ");
 //        List<TestDBBean>  beans= new ArrayList<>();
 //
@@ -178,7 +178,12 @@ public class FirstLaunchActivity extends ToolbarActivity  {
 //
 //        }
 //        return  "123";
-        return  new TestDBBean("id"+1,"name "+1,1);
+        LinkedList list = new LinkedList<TestDBBean>();
+        list.add(new TestDBBean("id"+133,"name "+10,133));
+        list.add(new TestDBBean("id"+144,"name "+10,144));
+        list.add(new TestDBBean("id"+14444,"name "+14444,144));
+        return list;
+//        return  new TestDBBean("id"+11,"name "+11,11);
     }
 
 
@@ -204,7 +209,7 @@ public class FirstLaunchActivity extends ToolbarActivity  {
         MyLogger.jLog().d("current    thread  ");
         Flowable.fromIterable(realmObjects)
                 .observeOn(Schedulers.io())
-                .subscribe(object ->  MyLogger.jLog().d("ob find all test "+object.getName()));
+                .subscribe(object ->  MyLogger.jLog().d("ob find all test :name "+object.getName()+"  id :"+object.getId()));
     }
 
     private void obAddTest(Boolean aBoolean) {

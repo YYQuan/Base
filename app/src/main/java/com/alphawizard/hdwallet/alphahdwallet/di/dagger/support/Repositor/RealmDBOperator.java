@@ -74,7 +74,7 @@ public class RealmDBOperator implements RealmDBOperatorType {
      * @return 批量保存是否成功
      */
     @Override
-    public Single<Boolean> insert(List<? extends RealmObject> list) {
+    public Single<Boolean> insertBatch(List<? extends RealmObject> list) {
         return Single.fromCallable(()-> {
             Realm   realm = Realm.getDefaultInstance();
             try {
@@ -157,6 +157,7 @@ public class RealmDBOperator implements RealmDBOperatorType {
     public Single<Boolean> saveOrUpdateBatch(List<? extends RealmObject> list) {
         return Single.fromCallable(()-> {
             Realm   realm = Realm.getDefaultInstance();
+            List result = null;
             try {
                 realm.beginTransaction();
                 realm.copyToRealmOrUpdate(list);
@@ -169,6 +170,7 @@ public class RealmDBOperator implements RealmDBOperatorType {
             }finally {
                 realm.close();
             }
+
         }).subscribeOn(Schedulers.io());
     }
 

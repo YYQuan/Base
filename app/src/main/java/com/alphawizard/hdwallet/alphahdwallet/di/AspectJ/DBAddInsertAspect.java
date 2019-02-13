@@ -13,6 +13,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 import io.realm.RealmObject;
 
@@ -21,15 +22,14 @@ import io.realm.RealmObject;
  */
 @Aspect
 public class DBAddInsertAspect {
-    private static final String POINTCUT_METHOD = "execution(@com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert * *(..))";
+
 
     @Around("execution(!synthetic * *(..)) && onDBAddInsertMethod()")
     public  Object  doRealmsInsertMethod(final ProceedingJoinPoint joinPoint) throws Throwable {
           return dbAddMethod(joinPoint);
     }
 
-//    @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.RealmsInsert)|| " +
-//    @Pointcut("@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert)")
+
     @Pointcut("@within(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert)||" +
             "@annotation(com.alphawizard.hdwallet.alphahdwallet.di.AspectJ.Annotation.DBAddInsert)")
     public void onDBAddInsertMethod() {
@@ -52,36 +52,41 @@ public class DBAddInsertAspect {
 
             result = joinPoint.proceed();
             String type = ((MethodSignature) joinPoint.getSignature()).getReturnType().toString();
-
+            if(type.contains("List")){
 //            if (!"void".equalsIgnoreCase(type)) {
-//                String className = ((MethodSignature) joinPoint.getSignature()).getReturnType().getCanonicalName();
-//                MyLogger.jLog().e("className  :"+className);
-//                if ("int".equals(className) || "java.lang.Integer".equals(className)) {
-//
-//                } else if ("boolean".equals(className) || "java.lang.Boolean".equals(className)) {
-//
-//                } else if ("float".equals(className) || "java.lang.Float".equals(className)) {
-//
-//                } else if ("long".equals(className) || "java.lang.Long".equals(className)) {
-//
-//                } else if ("java.lang.String".equals(className)) {
-//
-//                }
-//            }
+                String className = ((MethodSignature) joinPoint.getSignature()).getReturnType().getCanonicalName();
+                MyLogger.jLog().e("className  :"+className);
+                List list = (List)result;
+                if(list.get(0) instanceof RealmObject){
+                    if (isUpdate) {
+                        RealmDBOperator.getInstance()
+                                .insertOrUpdateBatch(list)
+                                .subscribe();
+                        } else {
+                            RealmDBOperator.getInstance()
+                                    .insertBatch(list)
+                                    .subscribe();
+                        }
 
-            if(result instanceof  RealmObject) {
-                MyLogger.jLog().d("result  is  realmObject Sub class");
-                if (isUpdate) {
-                    RealmDBOperator.getInstance()
-                            .insertOrUpdate((RealmObject) result)
-                            .subscribe();
-                } else {
-                    RealmDBOperator.getInstance()
-                            .insert((RealmObject) result)
-                            .subscribe();
+                }else{
+                    MyLogger.jLog().e("result  is not realmObject Sub class");
                 }
-            }else{
-                MyLogger.jLog().e("result  is not realmObject Sub class");
+            }else {
+
+                if (result instanceof RealmObject) {
+                    MyLogger.jLog().d("result  is  realmObject Sub class");
+                    if (isUpdate) {
+                        RealmDBOperator.getInstance()
+                                .insertOrUpdate((RealmObject) result)
+                                .subscribe();
+                    } else {
+                        RealmDBOperator.getInstance()
+                                .insert((RealmObject) result)
+                                .subscribe();
+                    }
+                } else {
+                    MyLogger.jLog().e("result  is not realmObject Sub class");
+                }
             }
 
         } else {

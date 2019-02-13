@@ -23,7 +23,7 @@ public interface RealmDBOperatorType {
      * @param list
      * @return 批量保存是否成功
      */
-    public Single<Boolean> insert(List<? extends RealmObject> list);
+    public Single<Boolean> insertBatch(List<? extends RealmObject> list);
 
     /**
      * 添加或者修改
