@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.alphawizard.hdwallet.alphahdwallet.R;
 import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
+import com.alphawizard.hdwallet.common.base.widget.RecyclerView.AdapterCallback;
 import com.alphawizard.hdwallet.common.base.widget.RecyclerView.RecyclerAdapter;
 
 
@@ -51,7 +52,13 @@ public class WalletAdapter extends RecyclerAdapter<Wallet, WalletAdapter.WalletH
     }
 
 
-    class WalletHolder  extends RecyclerAdapter.BaseHolder {
+
+    @Override
+    public void setAdapterCallback(AdapterCallback<WalletHolder, Wallet> adapterCallback) {
+        super.setAdapterCallback(adapterCallback);
+    }
+
+    public class WalletHolder  extends RecyclerAdapter.BaseHolder {
         @Nullable
         @BindView(R.id.txt_title)
         TextView mTitle;
@@ -60,7 +67,7 @@ public class WalletAdapter extends RecyclerAdapter<Wallet, WalletAdapter.WalletH
         TextView mContent;
         @Nullable
         @BindView(R.id.iv_eth)
-        ImageView mImageView;
+        public ImageView mImageView;
 
         public WalletHolder(View view) {
             super(view);

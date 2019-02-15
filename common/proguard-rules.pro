@@ -65,7 +65,7 @@
 }
 
 -keepclassmembers class * extends android.app.Activity {
-   public void *(android.view.View);  
+   public void *(android.view.View);
 }
 
 -dontwarn com.alibaba.fastjson.**

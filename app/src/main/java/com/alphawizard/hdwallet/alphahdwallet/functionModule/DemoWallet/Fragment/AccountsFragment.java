@@ -14,7 +14,9 @@ import com.alphawizard.hdwallet.alphahdwallet.entity.Wallet;
 import com.alphawizard.hdwallet.alphahdwallet.functionModule.DemoWallet.WalletViewModule;
 import com.alphawizard.hdwallet.common.base.App.Fragment;
 import com.alphawizard.hdwallet.common.base.Layout.PlaceHolder.EmptyLayout;
+import com.alphawizard.hdwallet.common.base.widget.RecyclerView.AdapterCallback;
 import com.alphawizard.hdwallet.common.util.MyLogger;
+import com.bumptech.glide.Glide;
 
 
 import java.util.ArrayList;
@@ -103,7 +105,9 @@ public class AccountsFragment extends Fragment {
            wallets.add(new Wallet(" "+i));
        }
 
-        mAdapter =new WalletAdapter(R.layout.cell_accounts_list,wallets);
+       mAdapter =new WalletAdapter(R.layout.cell_accounts_list,wallets);
+
+
 
 //        顶部 刷新开关
 //        这个 顶部刷新  和下拉刷新 的效果差很多 ， 要做 下拉刷新的话不能用这个来做 ，

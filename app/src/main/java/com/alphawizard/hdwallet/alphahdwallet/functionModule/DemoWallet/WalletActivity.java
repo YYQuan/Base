@@ -68,6 +68,7 @@ public class WalletActivity extends ToolbarActivity implements
     @Override
     public void initData() {
         super.initData();
+
         Menu menu = navigation.getMenu();
         menu.performIdentifierAction(R.id.action_wallet,0);
 

@@ -27,6 +27,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            renderscriptDebuggable true
+        }
+        debug {
+            debuggable false
+            jniDebuggable false
+            zipAlignEnabled true
+//            minifyEnabled true
+//            shrinkResources true
+            renderscriptDebuggable true
         }
     }
 
@@ -49,11 +58,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-//    butter knife
+    //    butter knife
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
-// qiujuer tools
+    // qiujuer tools
     implementation "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     implementation "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
     implementation "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
@@ -62,7 +71,8 @@ dependencies {
     implementation "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
 
     // Dagger dependencies
-//    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+
+    //    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
     implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
     implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
@@ -75,14 +85,12 @@ dependencies {
     //glide图片加载框架
     implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
 
-
     // ReactiveX
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
 
     //    挺好用的  recyclerView的 adapter 的封装
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.ext.baseRecyclerViewAdapterHelper"
-
 
     //    ARouter
     implementation "com.alibaba:arouter-api:$rootProject.ext.aRouterApi"
@@ -91,15 +99,12 @@ dependencies {
     // 管理  bar  的辅助类
     implementation "com.gyf.barlibrary:barlibrary:$rootProject.ext.barLibrary"
 
-//  okgo
-
+    //  okgo
     implementation "com.lzy.net:okgo:$rootProject.ext.okgoVersion"
     implementation "com.lzy.net:okrx2:$rootProject.ext.okRxVersion"
     implementation "com.lzy.net:okserver:$rootProject.ext.okServer"
 
-//  event  bus
+    //  event  bus
     implementation "org.greenrobot:eventbus:$rootProject.ext.eventBus"
-
-
     implementation project(':lang')
 }
